@@ -18,11 +18,12 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="container-tal flex h-16 items-center justify-between md:h-[72px]">
-        <a
-          href={`#top`}
-          className="font-display text-sm font-semibold uppercase tracking-[0.28em] text-bone-100"
-        >
-          Tal Resort
+        <a href={`#top`} className="flex items-center gap-2.5">
+          {/* Vector mark — crisp at any size; recolour/animate later. */}
+          <img src="/logo.svg" alt="" className="h-9 w-9" />
+          <span className="font-display text-sm font-semibold uppercase tracking-[0.28em] text-bone-100">
+            Tal Resort
+          </span>
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">

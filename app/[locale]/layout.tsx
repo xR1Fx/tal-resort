@@ -6,6 +6,7 @@ import { Onest, Manrope } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { Header } from "@/components/site/Header";
+import { Footer } from "@/components/site/Footer";
 import "../globals.css";
 
 // Display + body. Both ship cyrillic-ext, which carries the Kazakh-specific
@@ -55,6 +56,7 @@ export default async function LocaleLayout({
           <SmoothScroll>
             <Header />
             <main id="top">{children}</main>
+            <Footer />
           </SmoothScroll>
         </NextIntlClientProvider>
       </body>

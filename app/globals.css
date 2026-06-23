@@ -24,6 +24,12 @@
   --color-ember-500: #c8783c;
   --color-ember-600: #a85f2c;
 
+  /* Brand water-blue, sampled from the logo (#1BAFEF). */
+  --color-brand-300: #7dd3fb;
+  --color-brand-400: #38bdf6;
+  --color-brand-500: #1bafef;
+  --color-brand-600: #0d8fce;
+
   /* Semantic aliases */
   --color-background: var(--color-ink-900);
   --color-surface: var(--color-ink-800);
