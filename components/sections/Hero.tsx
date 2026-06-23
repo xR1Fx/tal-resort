@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { contacts } from "@/content/resort";
@@ -24,16 +25,26 @@ export function Hero() {
       ref={ref}
       className="relative flex min-h-[100dvh] items-end overflow-hidden"
     >
-      {/* Placeholder for the hero video/photo. Swap this layer for a scrub-
-          controlled <video> once originals are exported from Tilda. */}
+      {/* Real establishing shot (cottages at the foot of the Talgar mountains).
+          Swap for a scrub-controlled <video> once originals are exported. */}
       <motion.div
         aria-hidden
         style={{ y: bgY, scale: bgScale }}
-        className="absolute inset-0 -z-10 bg-[radial-gradient(120%_120%_at_50%_0%,#1b443c_0%,#0c1e1b_55%,#07140f_100%)]"
-      />
+        className="absolute inset-0 -z-10"
+      >
+        <Image
+          src="/images/hero-cottages.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </motion.div>
+      {/* Scrims: bottom-up for text legibility + overall tint to the brand base. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(7,20,15,0.9),transparent_55%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(7,20,15,0.95)_5%,rgba(7,20,15,0.45)_45%,rgba(7,20,15,0.25)_100%)]"
       />
 
       <motion.div

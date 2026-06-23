@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/sections/Hero";
 import { FeatureSection } from "@/components/sections/FeatureSection";
@@ -25,12 +26,16 @@ export default async function HomePage({
         index="01"
         title={t("aqua.title")}
         lead={t("aqua.lead")}
+        image="/images/aqua-pool.jpg"
+        alt={t("aqua.title")}
       />
       <FeatureSection
         id={sectionIds.baths}
         index="02"
         title={t("baths.title")}
         lead={t("baths.lead")}
+        image="/images/baths-salt.jpg"
+        alt={t("baths.title")}
         mediaFirst
       />
       <FeatureSection
@@ -38,12 +43,16 @@ export default async function HomePage({
         index="03"
         title={t("stay.title")}
         lead={t("stay.lead")}
+        image="/images/stay-room.jpg"
+        alt={t("stay.title")}
       />
       <FeatureSection
         id={sectionIds.restaurant}
         index="04"
         title={t("restaurant.title")}
         lead={t("restaurant.lead")}
+        image="/images/restaurant-fireplace.jpg"
+        alt={t("restaurant.title")}
         mediaFirst
       />
 
@@ -88,6 +97,18 @@ export default async function HomePage({
         id={sectionIds.location}
         className="container-tal scroll-mt-24 border-t border-bone-200/10 py-24 md:py-32"
       >
+        <Reveal className="mb-12 overflow-hidden rounded-2xl ring-1 ring-bone-200/10">
+          <div className="relative aspect-[21/9] w-full">
+            <Image
+              src="/images/building-logo.jpg"
+              alt="TAL RESORT"
+              fill
+              sizes="(min-width: 1400px) 1400px, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
+
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <h2 className="font-display text-4xl font-semibold tracking-tight text-bone-50 md:text-5xl">
