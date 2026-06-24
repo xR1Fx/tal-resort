@@ -1,0 +1,85 @@
+// ===============================
+//  Плавающая премиум-кнопка бронирования
+//  По умолчанию — вытянутая «пилюля» с текстом.
+//  При скролле (класс .is-collapsed) сворачивается
+//  в круглую пульсирующую иконку WhatsApp.
+// ===============================
+.float-book {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  bottom: calc(clamp(1rem, 3vw, 2rem) + env(safe-area-inset-bottom));
+  z-index: 50;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  height: 56px;
+  padding: 0 1.6rem;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  white-space: nowrap;
+  color: $color-light;
+  background-color: $color-accent;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+
+  transition: padding 0.45s ease, width 0.45s ease,
+    background-color 0.45s ease, box-shadow 0.45s ease;
+
+  &__label {
+    transition: opacity 0.3s ease, max-width 0.45s ease;
+    overflow: hidden;
+    max-width: 240px;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+
+  &:hover {
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.3);
+  }
+
+  // ---- Свёрнутое состояние (круглая иконка) ----
+  &.is-collapsed {
+    width: 56px;
+    padding: 0;
+    justify-content: center;
+    background-color: #25d366; // фирменный зелёный WhatsApp
+    animation: float-pulse 2s ease-out infinite;
+
+    .float-book__label {
+      max-width: 0;
+      opacity: 0;
+    }
+  }
+}
+
+// Пульсация
+@keyframes float-pulse {
+  0% {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22),
+      0 0 0 0 rgba(37, 211, 102, 0.55);
+  }
+  70% {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22),
+      0 0 0 18px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22),
+      0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+// Уважение к настройкам пользователя
+@media (prefers-reduced-motion: reduce) {
+  .float-book.is-collapsed {
+    animation: none;
+  }
+}

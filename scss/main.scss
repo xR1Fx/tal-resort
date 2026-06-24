@@ -1,0 +1,212 @@
+// ===============================
+//  Tal Resort — главный SCSS файл
+//  Партиалы блоков подключены через @import внизу.
+// ===============================
+
+// -------- Переменные --------
+$color-dark: #161310; // мягкий «чёрный» с тёплым подтоном
+$color-ivory: #fcfbf9; // основной фон — слоновая кость
+$color-light: #ffffff; // чистый белый (карточки)
+$color-cream: #f4f0e9; // тёплый кремовый фон чередующихся секций
+$color-muted: #7a7268; // приглушённый текст
+$color-line: #e7e2da; // тонкие линии/рамки
+$color-accent: #4aa3df; // brand water-blue
+
+$font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+$font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+$container: 1200px;
+
+// -------- Миксины брейкпоинтов --------
+@mixin tablet {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+// -------- Сброс / база --------
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; // скроллом управляет Lenis
+  -webkit-text-size-adjust: 100%; // стабильность шрифтов в iOS Safari
+}
+
+body {
+  font-family: $font-sans;
+  background-color: $color-ivory;
+  color: $color-dark;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden; // защита от горизонтального скролла на мобильных
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+// -------- Общие утилиты --------
+.container {
+  width: min(#{$container}, 100% - 3rem);
+  margin-inline: auto;
+
+  @include mobile {
+    width: min(#{$container}, 100% - 2.4rem);
+  }
+}
+
+.section {
+  position: relative;
+  width: 100%;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: clamp(3rem, 7vw, 5.5rem);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: $color-accent;
+  margin-bottom: 1.4rem;
+}
+
+.section-title {
+  font-family: $font-serif;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: $color-dark;
+}
+
+// -------- Пословная анимация текста --------
+.word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+// ===============================
+//  HERO
+// ===============================
+.hero {
+  position: relative;
+  z-index: 1; // нижний слой — следующий блок наезжает поверх (z-index: 2)
+  width: 100%;
+  height: 100dvh;
+  min-height: 100vh; // запасной вариант для старых iOS
+  overflow: hidden;
+  background-color: $color-ivory;
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    will-change: transform, opacity;
+  }
+
+  &__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: $color-dark center / cover no-repeat;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.45) 45%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  }
+
+  &__content {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: $color-light;
+  }
+
+  &__eyebrow {
+    font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: -0.5rem; // компенсируем gap контейнера
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-weight: 400;
+    font-size: clamp(2.4rem, 6vw, 5.5rem);
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  &__btn {
+    display: inline-block;
+    padding: 1rem 2.6rem;
+    font-family: $font-sans;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-light;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+    background: transparent;
+    transition: background-color 0.4s ease, color 0.4s ease,
+      border-color 0.4s ease;
+
+    &:hover {
+      background-color: $color-light;
+      color: $color-dark;
+      border-color: $color-light;
+    }
+  }
+}
+
+// ===============================
+//  Партиалы блоков
+// ===============================
+@import "about";
+@import "rooms";
+@import "amenities";
+@import "gallery";
+@import "footer";
+@import "float-btn";

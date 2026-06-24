@@ -1,0 +1,84 @@
+// ===============================
+//  Блок 2 — О концепции (The Experience)
+// ===============================
+.about {
+  position: relative;
+  z-index: 2; // наезжает поверх зафиксированного hero (z-index: 1)
+  background-color: $color-ivory; // непрозрачный фон — перекрывает видео
+  padding: clamp(7rem, 17vh, 13rem) 0;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: clamp(2.5rem, 6vw, 6rem);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.8rem;
+  }
+
+  &__lead {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: $color-dark;
+    margin-bottom: 1.2rem;
+  }
+
+  &__body {
+    color: $color-muted;
+    margin-bottom: 2.4rem;
+  }
+
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+    list-style: none;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  &__stat-num {
+    font-family: $font-serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: $color-accent;
+    line-height: 1;
+  }
+
+  &__stat-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: $color-muted;
+  }
+
+  &__media {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 4px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include tablet {
+      aspect-ratio: 16 / 10;
+      order: -1; // на мобильных картинка сверху
+    }
+  }
+}
