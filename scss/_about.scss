@@ -2,9 +2,7 @@
 //  Блок 2 — О концепции (The Experience)
 // ===============================
 .about {
-  position: relative;
-  z-index: 2; // наезжает поверх зафиксированного hero (z-index: 1)
-  background-color: $color-ivory; // непрозрачный фон — перекрывает видео
+  background-color: $color-ivory;
   padding: clamp(7rem, 17vh, 13rem) 0;
 
   &__inner {

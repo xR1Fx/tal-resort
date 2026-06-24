@@ -26,57 +26,61 @@ const reduceMotion = window.matchMedia(
 ).matches;
 
 // ===============================
-//  HERO — pin + scale + fade
+//  HERO — раскрытие видео-окошка + разлёт заголовка
 // ===============================
 const hero = document.querySelector("[data-hero]");
-const heroMedia = document.querySelector("[data-hero-media]");
+const heroFrame = document.querySelector("[data-hero-frame]");
 
-if (hero && heroMedia && !reduceMotion) {
+if (hero && heroFrame && !reduceMotion) {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: hero,
       start: "top top",
-      end: "+=150%", // длинная фиксация — зум идёт мягко и неспешно
+      end: "+=160%", // длина прокрутки на раскрытие
       pin: true,
-      // false: спейсер не добавляется, поэтому следующий блок
-      // наезжает ПОВЕРХ зафиксированного hero (см. z-index в SCSS)
-      pinSpacing: false,
+      pinSpacing: true, // после раскрытия страница спокойно листается дальше
       scrub: true,
       anticipatePin: 1,
-      invalidateOnRefresh: true,
+      invalidateOnRefresh: true, // пересчёт целевых размеров при ресайзе
     },
   });
 
-  // 1) «Влёт вглубь кадра»: видео плавно увеличивается весь скролл (зум с дрона)
-  tl.fromTo(
-    heroMedia,
-    { scale: 1 },
-    { scale: 1.2, ease: "none", duration: 1.5 },
-    0
-  );
-
-  // 2) Заголовок и кнопка улетают вверх, чуть уменьшаются и растворяются в воздухе
+  // 1) Окошко плавно раскрывается на весь экран (во все стороны от центра)
   tl.to(
-    ".hero__content",
+    heroFrame,
     {
-      yPercent: -22,
-      scale: 0.86,
-      opacity: 0,
-      ease: "power1.in",
-      duration: 0.7,
+      width: () => window.innerWidth,
+      height: () => window.innerHeight,
+      borderRadius: 0,
+      ease: "power2.inOut",
+      duration: 1,
     },
     0
   );
 
-  // 3) Тёмное наложение мягко уходит по мере «влёта»
-  tl.to(".hero__overlay", { opacity: 0, ease: "none", duration: 0.95 }, 0);
+  // 2) Затемнение поверх видео уходит по мере раскрытия
+  tl.to(".hero__frame-tint", { opacity: 0, ease: "none", duration: 1 }, 0);
 
-  // 4) Ближе к концу зума видео уходит в прозрачность — пока белый блок
-  //    наезжает снизу и перекрывает кадр (стык получается бесшовным)
+  // 3) Заголовок разлетается: левая часть — влево, правая — вправо, и тает
   tl.to(
-    heroMedia,
-    { opacity: 0, ease: "power2.in", duration: 0.45 },
-    0.6
+    "[data-hero-left]",
+    {
+      x: () => -window.innerWidth * 0.7,
+      opacity: 0,
+      ease: "power2.in",
+      duration: 0.5,
+    },
+    0
+  );
+  tl.to(
+    "[data-hero-right]",
+    {
+      x: () => window.innerWidth * 0.7,
+      opacity: 0,
+      ease: "power2.in",
+      duration: 0.5,
+    },
+    0
   );
 }
 

@@ -22,9 +22,13 @@
 </head>
 <body>
 
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO (раскрытие видео при скролле) ============ -->
   <section class="hero" data-hero>
-    <div class="hero__media" data-hero-media>
+    <!-- Фон по бокам от окошка -->
+    <div class="hero__bg"></div>
+
+    <!-- Центральное видео-окошко, раскрывается на весь экран -->
+    <div class="hero__frame" data-hero-frame>
       <video
         class="hero__video"
         autoplay
@@ -36,14 +40,15 @@
         <!-- Временное тестовое видео (заменить на финальное позже) -->
         <source src="assets/test.mp4" type="video/mp4" />
       </video>
+      <div class="hero__frame-tint"></div>
     </div>
 
-    <div class="hero__overlay"></div>
-
+    <!-- Заголовок поверх окошка: части разлетаются в стороны -->
     <div class="hero__content">
-      <span class="hero__eyebrow">Аква-курорт · 1 час от Алматы</span>
-      <h1 class="hero__title">Искусство<br />семейного отдыха</h1>
-      <a href="#booking" class="hero__btn">Забронировать отдых</a>
+      <h1 class="hero__title">
+        <span class="hero__word" data-hero-left>Искусство</span>
+        <span class="hero__word" data-hero-right>семейного отдыха</span>
+      </h1>
     </div>
   </section>
 
