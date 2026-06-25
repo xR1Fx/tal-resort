@@ -18,7 +18,7 @@ const reduceMotion = window.matchMedia(
 ).matches;
 
 (function ensureHeroVideoPlays() {
-  const vids = document.querySelectorAll(".hero video");
+  const vids = document.querySelectorAll("video");
   if (!vids.length) return;
 
   const tryPlay = () => {
@@ -136,7 +136,7 @@ if (!reduceMotion) {
   const gridItems = new Set();
 
   gsap.utils
-    .toArray(".rooms__grid, .gallery__grid")
+    .toArray(".rooms__grid")
     .forEach((grid) => {
       const items = gsap.utils.toArray(grid.querySelectorAll("[data-reveal]"));
       items.forEach((item) => gridItems.add(item));
@@ -247,23 +247,6 @@ if (marquee && !reduceMotion) {
       loop.timeScale(1);
       skewTo(0);
     }, 120);
-  });
-}
-
-if (!reduceMotion) {
-  gsap.utils.toArray(".gallery__item").forEach((item, i) => {
-    const img = item.querySelector("img");
-    if (!img) return;
-    const depth = 4 + (i % 3) * 2;
-    gsap.fromTo(
-      img,
-      { yPercent: -depth },
-      {
-        yPercent: depth,
-        ease: "none",
-        scrollTrigger: { trigger: item, start: "top bottom", end: "bottom top", scrub: true },
-      }
-    );
   });
 }
 

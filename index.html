@@ -738,22 +738,20 @@
         <h2 class="section-title" data-reveal data-i18n="gallery.title">Моменты Tal Resort</h2>
       </header>
 
-      <div class="gallery__grid">
-        <figure class="gallery__item gallery__item--tall" data-reveal>
-          <img src="assets/images/restaurant-fireplace.jpg" alt="Камин в ресторане" loading="lazy" />
-        </figure>
-        <figure class="gallery__item" data-reveal>
-          <img src="assets/images/aqua-snack.jpg" alt="Зона отдыха у бассейна" loading="lazy" />
-        </figure>
-        <figure class="gallery__item" data-reveal>
-          <img src="assets/images/decor-blossom-pink.png" alt="Весеннее цветение" loading="lazy" />
-        </figure>
-        <figure class="gallery__item gallery__item--wide" data-reveal>
-          <img src="assets/images/building-logo.jpg" alt="Главное здание курорта" loading="lazy" />
-        </figure>
-        <figure class="gallery__item" data-reveal>
-          <img src="assets/images/decor-blossom-apple.png" alt="Яблоневый цвет" loading="lazy" />
-        </figure>
+      <div class="gallery__video" data-reveal>
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+          preload="metadata"
+          poster="assets/images/atmosphere-poster.jpg"
+        >
+          <source src="assets/atmosphere.mp4" type="video/mp4" />
+        </video>
+        <div class="gallery__video-overlay"></div>
+        <span class="gallery__video-cap" data-i18n="gallery.cap">Атмосфера Tal Resort</span>
       </div>
     </div>
   </section>

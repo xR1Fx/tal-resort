@@ -163,6 +163,7 @@
 
       "gallery.eyebrow": "Атмосфера",
       "gallery.title": "Моменты Tal Resort",
+      "gallery.cap": "Атмосфера Tal Resort",
 
       "rev.eyebrow": "Отзывы гостей",
       "rev.title": "Нам доверяют отдых",
@@ -367,6 +368,7 @@
 
       "gallery.eyebrow": "Атмосфера",
       "gallery.title": "Tal Resort сәттері",
+      "gallery.cap": "Tal Resort атмосферасы",
 
       "rev.eyebrow": "Қонақ пікірлері",
       "rev.title": "Демалысын бізге сенеді",
@@ -571,6 +573,7 @@
 
       "gallery.eyebrow": "Atmosphere",
       "gallery.title": "Moments of Tal Resort",
+      "gallery.cap": "The atmosphere of Tal Resort",
 
       "rev.eyebrow": "Guest reviews",
       "rev.title": "They trust us with their rest",

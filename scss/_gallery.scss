@@ -2,51 +2,40 @@
   background-color: $color-cream;
   padding: clamp(7rem, 17vh, 13rem) 0;
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 220px;
-    gap: clamp(0.8rem, 2vw, 1.4rem);
+  &__video {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(20, 39, 29, 0.12);
+    box-shadow: 0 30px 80px rgba(15, 28, 20, 0.28);
+    background-color: $color-dark;
 
-    @include tablet {
-      grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: 200px;
-    }
-    @include mobile {
-      grid-template-columns: 1fr;
-      grid-auto-rows: 240px;
+    video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
   }
 
-  &__item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    margin: 0;
+  &__video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 20, 15, 0) 55%, rgba(8, 20, 15, 0.55));
+    pointer-events: none;
+  }
 
-    img {
-      position: absolute;
-      inset: -12% 0 auto 0;
-      width: 100%;
-      height: 124%;
-      object-fit: cover;
-      will-change: transform;
-    }
-
-    &--tall {
-      grid-row: span 2;
-
-      @include mobile {
-        grid-row: span 1;
-      }
-    }
-
-    &--wide {
-      grid-column: span 2;
-
-      @include mobile {
-        grid-column: span 1;
-      }
-    }
+  &__video-cap {
+    position: absolute;
+    left: clamp(1.2rem, 3vw, 2.4rem);
+    bottom: clamp(1.1rem, 3vw, 2rem);
+    z-index: 1;
+    font-family: $font-serif;
+    font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+    color: $color-ivory;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
   }
 }
