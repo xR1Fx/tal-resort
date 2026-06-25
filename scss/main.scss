@@ -341,8 +341,10 @@ a {
     inset: 0;
     z-index: 3;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: clamp(1rem, 3vh, 1.8rem);
     padding: 1.5rem;
     text-align: center;
     pointer-events: none;
@@ -368,11 +370,6 @@ a {
   }
 
   &__proof {
-    position: absolute;
-    left: 50%;
-    bottom: clamp(2rem, 6vh, 3.5rem);
-    transform: translateX(-50%);
-    z-index: 3;
     display: inline-flex;
     align-items: center;
     gap: 0.85rem;

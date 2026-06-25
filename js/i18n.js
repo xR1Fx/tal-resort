@@ -14,7 +14,7 @@
 
       "hero.titleLeft": "Искусство",
       "hero.titleRight": "семейного отдыха",
-      "hero.proof": "<b>4.9</b> · более 1200 счастливых гостей",
+      "hero.proof": "Нам доверяют самое ценное — свой отдых",
       "hero.sideTitle": "Перезагрузка",
       "hero.sideText": "Оставьте городской шум позади. Наслаждайтесь безупречным сервисом и тишиной.",
 
@@ -216,7 +216,7 @@
 
       "hero.titleLeft": "Отбасылық",
       "hero.titleRight": "демалыс өнері",
-      "hero.proof": "<b>4.9</b> · 1200-ден аса бақытты қонақ",
+      "hero.proof": "Ең қымбатын — демалысын бізге сенеді",
       "hero.sideTitle": "Қайта зарядтау",
       "hero.sideText": "Қала шуын артта қалдырыңыз. Мінсіз қызмет пен тыныштықтан ләззат алыңыз.",
 
@@ -418,7 +418,7 @@
 
       "hero.titleLeft": "The art of",
       "hero.titleRight": "family escapes",
-      "hero.proof": "<b>4.9</b> · over 1200 happy guests",
+      "hero.proof": "They trust us with what matters most — their rest",
       "hero.sideTitle": "Reset",
       "hero.sideText": "Leave the city noise behind. Enjoy flawless service and silence.",
 
