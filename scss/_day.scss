@@ -1,5 +1,5 @@
 .day {
-  padding: clamp(5rem, 12vh, 9rem) 0;
+  padding: clamp(5rem, 12vh, 9rem) 0 clamp(3.5rem, 8vh, 5.5rem);
   background: $color-cream;
 
   &__lead {
@@ -52,6 +52,10 @@
       background: $grad-gold;
       box-shadow: 0 0 0 4px $color-cream, 0 0 14px rgba(201, 169, 110, 0.65);
     }
+  }
+
+  &__step:last-child {
+    padding-bottom: 0;
   }
 
   &__step:last-child &__body {

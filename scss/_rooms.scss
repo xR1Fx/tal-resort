@@ -1,6 +1,6 @@
 .rooms {
   background-color: $color-cream;
-  padding: clamp(7rem, 17vh, 13rem) 0;
+  padding: clamp(3.5rem, 8vh, 5.5rem) 0 clamp(7rem, 17vh, 11rem);
 
   &__group + &__group {
     margin-top: clamp(3.5rem, 8vw, 6rem);
