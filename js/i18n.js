@@ -170,7 +170,7 @@
       "prices.weekday": "Будни",
       "prices.weekend": "Выходные",
       "prices.adultNote": "Аква-зоны, сауны, индивидуальный шкафчик · 10:00–23:00",
-      "prices.childNote": "Включая анимацию · 10:00–23:00",
+      "prices.childNote": "Участие в анимационных активностях · 10:00–23:00",
       "prices.hint": "При бронировании номера бассейны, бани и джакузи уже входят в стоимость.",
 
       "gallery.eyebrow": "Атмосфера",
@@ -386,7 +386,7 @@
       "prices.weekday": "Жұмыс күндері",
       "prices.weekend": "Демалыс",
       "prices.adultNote": "Аква-аймақтар, сауналар, жеке шкаф · 10:00–23:00",
-      "prices.childNote": "Анимацияны қоса · 10:00–23:00",
+      "prices.childNote": "Анимациялық белсенділіктерге қатысу · 10:00–23:00",
       "prices.hint": "Нөмір брондағанда бассейндер, моншалар мен джакузи бағаға кіреді.",
 
       "gallery.eyebrow": "Атмосфера",
@@ -602,7 +602,7 @@
       "prices.weekday": "Weekday",
       "prices.weekend": "Weekend",
       "prices.adultNote": "Aqua zones, saunas, personal locker · 10:00–23:00",
-      "prices.childNote": "Animation included · 10:00–23:00",
+      "prices.childNote": "Participation in animation activities · 10:00–23:00",
       "prices.hint": "When you book a room, the pools, baths and jacuzzi are already included.",
 
       "gallery.eyebrow": "Atmosphere",
