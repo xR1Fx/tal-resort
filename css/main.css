@@ -1728,59 +1728,6 @@ body.is-modal-open {
   margin-top: 0.6rem;
 }
 
-.cta {
-  background-color: #f7f3e9;
-  padding: clamp(3rem, 7vh, 5rem) 0;
-}
-
-.cta__panel {
-  position: relative;
-  border-radius: 28px;
-  overflow: hidden;
-  padding: clamp(3rem, 8vw, 6.5rem) clamp(1.5rem, 5vw, 4rem);
-  text-align: center;
-  color: #ffffff;
-  isolation: isolate;
-  background: url("../assets/images/aqua-pool.jpg") center/cover no-repeat;
-}
-.cta__panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(135deg, rgba(20, 39, 29, 0.78), rgba(20, 39, 29, 0.55));
-}
-.cta__panel-eyebrow {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 1.2rem;
-}
-.cta__panel-title {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: clamp(2.1rem, 5vw, 3.8rem);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  margin-bottom: 1.2rem;
-  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);
-}
-.cta__panel-text {
-  max-width: 56ch;
-  margin: 0 auto 2.4rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
-}
-.cta__panel-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
 .footer {
   background-color: #14271d;
   color: rgba(255, 255, 255, 0.85);
@@ -1901,6 +1848,11 @@ body.is-modal-open {
   padding: 1.6rem 0;
   padding-bottom: calc(1.6rem + env(safe-area-inset-bottom));
 }
+@media (max-width: 600px) {
+  .footer__bottom {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  }
+}
 .footer__bottom-inner {
   display: flex;
   justify-content: space-between;
@@ -1915,66 +1867,72 @@ body.is-modal-open {
   }
 }
 
-.float-book {
+.float-cta {
   position: fixed;
   right: clamp(1rem, 3vw, 2rem);
   bottom: clamp(1rem, 3vw, 2rem);
-  bottom: calc(clamp(1rem, 3vw, 2rem) + env(safe-area-inset-bottom));
-  z-index: 50;
-  display: inline-flex;
-  align-items: center;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
   gap: 0.7rem;
-  height: 56px;
-  padding: 0 1.6rem;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  white-space: nowrap;
-  color: #ffffff;
-  background-color: #a9853f;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
-  transition: padding 0.45s ease, width 0.45s ease, background-color 0.45s ease, box-shadow 0.45s ease;
 }
-.float-book__label {
-  transition: opacity 0.3s ease, max-width 0.45s ease;
-  overflow: hidden;
-  max-width: 240px;
-}
-.float-book__icon {
+.float-cta__btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: none;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(8, 30, 20, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.float-book:hover {
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.3);
+.float-cta__btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(8, 30, 20, 0.42);
 }
-.float-book.is-collapsed {
-  width: 56px;
-  padding: 0;
-  justify-content: center;
-  background-color: #25d366;
-  animation: float-pulse 2s ease-out infinite;
+.float-cta__btn--call {
+  color: #f7f3e9;
+  background: linear-gradient(155deg, #1c3327, #14271d);
 }
-.float-book.is-collapsed .float-book__label {
-  max-width: 0;
-  opacity: 0;
+.float-cta__btn--book {
+  color: #14271d;
+  background: linear-gradient(135deg, #f0d9a4 0%, #e8cd92 22%, #c9a96e 55%, #a78850 100%);
 }
-
-@keyframes float-pulse {
-  0% {
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22), 0 0 0 0 rgba(37, 211, 102, 0.55);
+.float-cta__icon svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+.float-cta__label {
+  display: none;
+}
+@media (max-width: 600px) {
+  .float-cta {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.5rem 0.6rem calc(0.5rem + env(safe-area-inset-bottom));
+    background: linear-gradient(180deg, rgba(20, 39, 29, 0) 0%, rgba(20, 39, 29, 0.16) 100%);
   }
-  70% {
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22), 0 0 0 18px rgba(37, 211, 102, 0);
+  .float-cta__btn {
+    flex: 1;
+    width: auto;
+    height: 52px;
+    gap: 0.55rem;
+    border-radius: 14px;
   }
-  100% {
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22), 0 0 0 0 rgba(37, 211, 102, 0);
+  .float-cta__icon svg {
+    width: 22px;
+    height: 22px;
   }
-}
-@media (prefers-reduced-motion: reduce) {
-  .float-book.is-collapsed {
-    animation: none;
+  .float-cta__label {
+    display: inline;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
   }
 }

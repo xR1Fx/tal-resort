@@ -274,18 +274,6 @@ gsap.utils.toArray("[data-count]").forEach((el) => {
   });
 });
 
-const floatBook = document.querySelector("[data-float-book]");
-
-if (floatBook) {
-  ScrollTrigger.create({
-    start: () => window.innerHeight * 0.6,
-    end: "max",
-    onToggle: (self) => {
-      floatBook.classList.toggle("is-collapsed", self.isActive);
-    },
-  });
-}
-
 const nav = document.querySelector("[data-nav]");
 const navMenu = document.querySelector("[data-nav-menu]");
 const navToggle = document.querySelector("[data-nav-toggle]");

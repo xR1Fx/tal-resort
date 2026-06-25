@@ -188,10 +188,6 @@
       "loc.hoursValue": "Ежедневно · 10:00–23:00",
       "loc.gis": "Открыть в 2ГИС",
 
-      "cta.eyebrow": "Готовы замедлиться?",
-      "cta.title": "Забронируйте отдых<br />в Tal Resort",
-      "cta.text": "Термальные бассейны 40°, бани, SPA и уютные домики всего в часе от Алматы. Напишите нам — подберём даты и категорию под вашу компанию.",
-      "cta.wa": "Написать в WhatsApp",
 
       "footer.tagline": "Аква-курорт у подножия Талгарских гор.",
       "footer.contactsHead": "Контакты",
@@ -204,7 +200,8 @@
       "footer.copy": "© 2026 TAL RESORT — Aqua &amp; SPA. Все права защищены.",
       "footer.region": "Талгар · Алматинская область",
 
-      "float.book": "Забронировать отдых"
+      "float.call": "Позвонить",
+      "float.book": "Забронировать"
     },
 
     kk: {
@@ -393,10 +390,6 @@
       "loc.hoursValue": "Күн сайын · 10:00–23:00",
       "loc.gis": "2ГИС-те ашу",
 
-      "cta.eyebrow": "Баяулауға дайынсыз ба?",
-      "cta.title": "Tal Resort-та демалысты<br />брондаңыз",
-      "cta.text": "40° термалды бассейндер, моншалар, SPA және жайлы үйшіктер Алматыдан небәрі бір сағат жерде. Бізге жазыңыз — күндер мен санатты компанияңызға қарай таңдаймыз.",
-      "cta.wa": "WhatsApp-қа жазу",
 
       "footer.tagline": "Талғар тауларының бөктеріндегі аква-курорт.",
       "footer.contactsHead": "Байланыс",
@@ -409,7 +402,8 @@
       "footer.copy": "© 2026 TAL RESORT — Aqua &amp; SPA. Барлық құқықтар қорғалған.",
       "footer.region": "Талғар · Алматы облысы",
 
-      "float.book": "Демалысты брондау"
+      "float.call": "Қоңырау шалу",
+      "float.book": "Брондау"
     },
 
     en: {
@@ -598,10 +592,6 @@
       "loc.hoursValue": "Daily · 10:00–23:00",
       "loc.gis": "Open in 2GIS",
 
-      "cta.eyebrow": "Ready to slow down?",
-      "cta.title": "Book your stay<br />at Tal Resort",
-      "cta.text": "Thermal pools at 40°, baths, a SPA and cosy cottages just an hour from Almaty. Message us — we'll pick dates and a category for your group.",
-      "cta.wa": "Message on WhatsApp",
 
       "footer.tagline": "An aqua resort at the foot of the Talgar mountains.",
       "footer.contactsHead": "Contacts",
@@ -614,7 +604,8 @@
       "footer.copy": "© 2026 TAL RESORT — Aqua &amp; SPA. All rights reserved.",
       "footer.region": "Talgar · Almaty region",
 
-      "float.book": "Book your stay"
+      "float.call": "Call",
+      "float.book": "Book"
     }
   };
 
