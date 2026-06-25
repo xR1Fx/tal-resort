@@ -319,12 +319,12 @@ a {
       inset 0 0 22px rgba(255, 255, 255, 0.18); // внутренний холодный блик
     will-change: width, height, border-radius;
 
-    // на телефоне — компактное стартовое окно (пропорции 9:16),
+    // на телефоне — маленькое стартовое окно (пропорции 9:16),
     // которое затем эффектно раскрывается на весь экран
     @include mobile {
-      width: min(27vh, 240px);
-      height: min(48vh, 426px);
-      border-radius: 18px;
+      width: min(23vh, 200px);
+      height: min(41vh, 356px);
+      border-radius: 16px;
     }
   }
 
@@ -395,6 +395,12 @@ a {
     font-size: clamp(2.4rem, 6.5vw, 5.2rem);
     letter-spacing: 0.01em;
     will-change: transform, opacity;
+
+    // на телефоне шрифт масштабируется по ширине экрана — текст
+    // центрирован по экрану и не выходит за края даже на узких устройствах
+    @include mobile {
+      font-size: clamp(1.7rem, 7.4vw, 2.7rem);
+    }
   }
 
   // ---- Стеклянный pill соц-доказательства (внизу) ----

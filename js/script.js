@@ -34,16 +34,16 @@ const heroFrame = document.querySelector("[data-hero-frame]");
 if (hero && heroFrame && !reduceMotion) {
   // На телефоне раскрытие — быстрее (короче прокрутка) и плавнее (инерц. scrub)
   const isMobile = window.matchMedia("(max-width: 600px)").matches;
-  const grow = isMobile ? 0.58 : 0.68; // доля таймлайна на раскрытие окна
+  const grow = isMobile ? 0.55 : 0.68; // доля таймлайна на раскрытие окна
 
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: hero,
       start: "top top",
-      end: isMobile ? "+=110%" : "+=160%", // длина прокрутки на раскрытие
+      end: isMobile ? "+=90%" : "+=160%", // короче прокрутка на телефоне — быстрее
       pin: true,
       pinSpacing: true, // после раскрытия страница спокойно листается дальше
-      scrub: isMobile ? 0.8 : true, // мягкая инерция на телефоне — плавнее
+      scrub: isMobile ? 1.1 : true, // больше инерции на телефоне — плавнее
       anticipatePin: 1,
       invalidateOnRefresh: true, // пересчёт целевых размеров при ресайзе
     },
