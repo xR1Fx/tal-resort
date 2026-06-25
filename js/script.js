@@ -465,6 +465,133 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
 });
 
 // ===============================
+//  Номера — модальное окно «Подробнее»
+//  Текст берётся из i18n (ключи rooms.<slug>.*), галерея — из TAL_ROOMS.
+// ===============================
+(function roomModal() {
+  const modal = document.querySelector("[data-room-modal]");
+  if (!modal || !window.TAL_ROOMS_BY_SLUG) return;
+
+  const track = modal.querySelector("[data-room-track]");
+  const dotsBox = modal.querySelector("[data-room-dots]");
+  const elMeta = modal.querySelector("[data-room-meta]");
+  const elTitle = modal.querySelector("[data-room-title]");
+  const elPrice = modal.querySelector("[data-room-price]");
+  const elDesc = modal.querySelector("[data-room-desc]");
+  const elAmen = modal.querySelector("[data-room-amen]");
+  const btnPrev = modal.querySelector("[data-room-prev]");
+  const btnNext = modal.querySelector("[data-room-next]");
+
+  let index = 0;
+  let count = 0;
+  let lastFocus = null;
+
+  const currentLang = () =>
+    document.documentElement.getAttribute("lang") || "ru";
+
+  function setI18n(el, key) {
+    if (el) el.setAttribute("data-i18n", key);
+  }
+
+  function goTo(i) {
+    if (!count) return;
+    index = (i + count) % count;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dotsBox.querySelectorAll("button").forEach((d, di) =>
+      d.classList.toggle("is-active", di === index)
+    );
+  }
+
+  function buildGallery(images) {
+    track.innerHTML = "";
+    dotsBox.innerHTML = "";
+    count = images.length;
+    images.forEach((src, i) => {
+      const slide = document.createElement("div");
+      slide.className = "room-modal__slide";
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "";
+      img.loading = i === 0 ? "eager" : "lazy";
+      slide.appendChild(img);
+      track.appendChild(slide);
+
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("aria-label", "Кадр " + (i + 1));
+      dot.addEventListener("click", () => goTo(i));
+      dotsBox.appendChild(dot);
+    });
+    const single = count <= 1;
+    btnPrev.hidden = single;
+    btnNext.hidden = single;
+    dotsBox.hidden = single;
+    goTo(0);
+  }
+
+  function open(slug) {
+    const room = window.TAL_ROOMS_BY_SLUG[slug];
+    if (!room) return;
+
+    setI18n(elMeta, `rooms.${slug}.meta`);
+    setI18n(elTitle, `rooms.${slug}.title`);
+    setI18n(elPrice, `rooms.${slug}.price`);
+    setI18n(elDesc, `rooms.${slug}.full`);
+    setI18n(elAmen, `rooms.${slug}.amen`);
+    // заполняем тексты текущим языком (i18n поддерживает HTML через innerHTML)
+    if (window.TalI18n) window.TalI18n.apply(currentLang());
+
+    buildGallery(room.images);
+
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    requestAnimationFrame(() => modal.classList.add("is-open"));
+    document.body.classList.add("is-modal-open");
+    if (typeof lenis !== "undefined" && lenis.stop) lenis.stop();
+    const closeBtn = modal.querySelector("[data-room-close].room-modal__close");
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function close() {
+    modal.classList.remove("is-open");
+    document.body.classList.remove("is-modal-open");
+    if (typeof lenis !== "undefined" && lenis.start) lenis.start();
+    const onEnd = () => {
+      modal.hidden = true;
+      modal.removeEventListener("transitionend", onEnd);
+    };
+    modal.addEventListener("transitionend", onEnd);
+    // запасной таймер на случай, если transitionend не сработает
+    setTimeout(() => {
+      if (!modal.classList.contains("is-open")) modal.hidden = true;
+    }, 450);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  // открытие по кнопкам «Подробнее»
+  document.querySelectorAll("[data-room-open]").forEach((btn) =>
+    btn.addEventListener("click", () => open(btn.getAttribute("data-room-open")))
+  );
+
+  // закрытие: оверлей, крестик, Esc
+  modal.querySelectorAll("[data-room-close]").forEach((el) =>
+    el.addEventListener("click", close)
+  );
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) close();
+  });
+
+  // навигация по галерее
+  btnPrev.addEventListener("click", () => goTo(index - 1));
+  btnNext.addEventListener("click", () => goTo(index + 1));
+  document.addEventListener("keydown", (e) => {
+    if (!modal.classList.contains("is-open")) return;
+    if (e.key === "ArrowLeft") goTo(index - 1);
+    if (e.key === "ArrowRight") goTo(index + 1);
+  });
+})();
+
+// ===============================
 //  Пересчёт координат после полной загрузки
 //  (важно из-за pin + поздней загрузки картинок)
 // ===============================
