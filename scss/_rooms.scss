@@ -53,15 +53,17 @@
 .room-card {
   height: 100%;
   background-color: $color-light;
-  border-radius: 4px;
+  border: 1px solid rgba(20, 39, 29, 0.12);
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
 
   &:hover {
     transform: translateY(-6px);
+    border-color: rgba(169, 133, 63, 0.4);
     box-shadow: 0 26px 60px rgba(0, 0, 0, 0.1);
   }
 
@@ -74,13 +76,27 @@
     padding: 1.6rem;
     text-align: center;
     overflow: hidden;
-    background: linear-gradient(150deg, #f4efe3, #e9ddc6);
+    background: linear-gradient(150deg, #efe4cb, #e1d0a8);
+    box-shadow: inset 0 0 0 1px rgba(169, 133, 63, 0.22),
+      inset 0 0 0 6px rgba(255, 255, 255, 0.28);
+    border-bottom: 1px solid rgba(20, 39, 29, 0.1);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: $color-accent;
+      -webkit-mask: url("../assets/logo.svg") no-repeat center / 46%;
+      mask: url("../assets/logo.svg") no-repeat center / 46%;
+      opacity: 0.12;
+      pointer-events: none;
+    }
 
     &::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(120% 80% at 50% 0%, rgba(255, 255, 255, 0.55), transparent 62%);
+      background: radial-gradient(120% 80% at 50% 0%, rgba(255, 255, 255, 0.5), transparent 62%);
       pointer-events: none;
     }
   }
@@ -94,6 +110,7 @@
     letter-spacing: 0.01em;
     line-height: 1.15;
     color: $color-dark;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 
   &__badge {
@@ -168,11 +185,11 @@
 }
 
 .room-card:nth-child(3n + 2) .room-card__media {
-  background: linear-gradient(150deg, #eef1ea, #dde4dc);
+  background: linear-gradient(150deg, #e6ece2, #d2dccd);
 }
 
 .room-card:nth-child(3n + 3) .room-card__media {
-  background: linear-gradient(150deg, #f5ece0, #ecdcc2);
+  background: linear-gradient(150deg, #f0e2c9, #e4cfa9);
 }
 
 .rooms__note {
