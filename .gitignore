@@ -16,5 +16,8 @@ node_modules/
 # Claude Code — личные настройки (не коммитим)
 .claude/settings.local.json
 
-# Временное тестовое видео (большое, не коммитим)
-assets/test.mp4
+# Видео курорта храним в репозитории целиком (чтобы продолжить на любом ПК)
+assets/*.mp4
+!assets/hero.mp4
+!assets/hero-bg.mp4
+!assets/TalRes.mp4

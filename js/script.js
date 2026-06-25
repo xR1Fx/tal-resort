@@ -46,6 +46,7 @@ if (hero && heroFrame && !reduceMotion) {
   });
 
   // 1) Окошко плавно раскрывается на весь экран (во все стороны от центра)
+  //    Рост занимает ~68% таймлайна, дальше видео «держится» полноэкранным.
   tl.to(
     heroFrame,
     {
@@ -53,13 +54,13 @@ if (hero && heroFrame && !reduceMotion) {
       height: () => window.innerHeight,
       borderRadius: 0,
       ease: "power2.inOut",
-      duration: 1,
+      duration: 0.68,
     },
     0
   );
 
   // 2) Затемнение поверх видео уходит по мере раскрытия
-  tl.to(".hero__frame-tint", { opacity: 0, ease: "none", duration: 1 }, 0);
+  tl.to(".hero__frame-tint", { opacity: 0, ease: "none", duration: 0.68 }, 0);
 
   // 3) Заголовок разлетается: левая часть — влево, правая — вправо, и тает
   tl.to(
@@ -81,6 +82,36 @@ if (hero && heroFrame && !reduceMotion) {
       duration: 0.5,
     },
     0
+  );
+
+  // 4) Соц-доказательство быстро растворяется
+  tl.to(
+    "[data-hero-proof]",
+    { opacity: 0, y: 20, ease: "none", duration: 0.3 },
+    0
+  );
+
+  // 5) Боковой текст (ПК) — проявляется, когда видео уже раскрылось на панели
+  // левый — вылетает из-за левого края и мягко доезжает на место
+  tl.fromTo(
+    "[data-hero-side-left]",
+    { autoAlpha: 0, x: "-110%" },
+    { autoAlpha: 0.98, x: "0%", ease: "power3.out", duration: 0.22 },
+    0.66
+  );
+  // правый — симметрично из-за правого края
+  tl.fromTo(
+    "[data-hero-side-right]",
+    { autoAlpha: 0, x: "110%" },
+    { autoAlpha: 0.98, x: "0%", ease: "power3.out", duration: 0.22 },
+    0.66
+  );
+
+  // ...держится, затем полностью растворяется в конце, уступая место следующему блоку
+  tl.to(
+    ["[data-hero-side-left]", "[data-hero-side-right]"],
+    { autoAlpha: 0, ease: "power2.in", duration: 0.08 },
+    0.92
   );
 }
 
@@ -162,6 +193,117 @@ if (!reduceMotion) {
 }
 
 // ===============================
+//  Шкалы-статы (gauges) — заполняются при появлении в зоне видимости
+// ===============================
+if (!reduceMotion) {
+  gsap.utils.toArray("[data-gauge]").forEach((fill) => {
+    const pct = parseFloat(fill.getAttribute("data-gauge")) || 0;
+    gsap.fromTo(
+      fill,
+      { width: "0%" },
+      {
+        width: pct + "%",
+        duration: 1.4,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: fill.closest(".gauge") || fill,
+          start: "top 85%",
+          once: true,
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  });
+} else {
+  // без анимаций — сразу показываем заполнение
+  document.querySelectorAll("[data-gauge]").forEach((fill) => {
+    fill.style.width = (parseFloat(fill.getAttribute("data-gauge")) || 0) + "%";
+  });
+}
+
+// ===============================
+//  Раскрытие картинок «шторкой» (clip-path) + зум
+// ===============================
+if (!reduceMotion) {
+  gsap.utils.toArray("[data-img-reveal]").forEach((wrap) => {
+    const img = wrap.querySelector("img");
+    const st = { trigger: wrap, start: "top 82%", once: true };
+    gsap.fromTo(
+      wrap,
+      { clipPath: "inset(0% 100% 0% 0%)" }, // скрыта справа
+      { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut", scrollTrigger: st }
+    );
+    if (img) {
+      gsap.fromTo(img, { scale: 1.35 }, { scale: 1, duration: 1.5, ease: "power3.out", scrollTrigger: st });
+    }
+  });
+}
+
+// ===============================
+//  Впечатления — липкие карточки «стопкой»
+//  Контент въезжает; уходящую карту «придавливает» и затемняет следующая.
+//  Работает одинаково круто на телефоне (sticky + touch-скролл).
+// ===============================
+const stackCards = gsap.utils.toArray(".stack__card");
+
+if (stackCards.length && !reduceMotion) {
+  stackCards.forEach((card) => {
+    // контент въезжает при входе карточки
+    gsap.from(card.querySelectorAll("[data-stack-anim]"), {
+      y: 60,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power3.out",
+      stagger: 0.1,
+      scrollTrigger: { trigger: card, start: "top 55%", once: true },
+    });
+  });
+}
+
+// ===============================
+//  Бегущая строка — едет сама + реагирует на скорость скролла
+// ===============================
+const marquee = document.querySelector("[data-marquee]");
+
+if (marquee && !reduceMotion) {
+  const loop = gsap.to(marquee, { xPercent: -50, duration: 20, ease: "none", repeat: -1 });
+  const skewTo = gsap.quickTo(marquee, "skewX", { duration: 0.5, ease: "power3" });
+  const clampSkew = gsap.utils.clamp(-12, 12);
+  let resetTimer;
+
+  lenis.on("scroll", (e) => {
+    const v = e.velocity || 0;
+    loop.timeScale(1 + Math.min(Math.abs(v) * 0.25, 6));
+    skewTo(clampSkew(v * -0.5));
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(() => {
+      loop.timeScale(1);
+      skewTo(0);
+    }, 120);
+  });
+}
+
+// ===============================
+//  Галерея — параллакс по глубине (разные скорости)
+// ===============================
+if (!reduceMotion) {
+  gsap.utils.toArray(".gallery__item").forEach((item, i) => {
+    const img = item.querySelector("img");
+    if (!img) return;
+    const depth = 4 + (i % 3) * 2; // 4 / 6 / 8 — ощущение глубины
+    gsap.fromTo(
+      img,
+      { yPercent: -depth },
+      {
+        yPercent: depth,
+        ease: "none",
+        scrollTrigger: { trigger: item, start: "top bottom", end: "bottom top", scrub: true },
+      }
+    );
+  });
+}
+
+// ===============================
 //  Пословное появление текста
 //  Слова всплывают по очереди с мягким затуханием
 // ===============================
@@ -199,6 +341,31 @@ if (!reduceMotion) {
 }
 
 // ===============================
+//  Счётчики (статы) — счёт от 0 при доскролле
+// ===============================
+gsap.utils.toArray("[data-count]").forEach((el) => {
+  const target = parseFloat(el.dataset.count);
+  const suffix = el.dataset.suffix || "";
+  const render = (v) => (el.textContent = Math.round(v).toLocaleString("ru-RU") + suffix);
+
+  ScrollTrigger.create({
+    trigger: el,
+    start: "top 90%",
+    once: true,
+    onEnter: () => {
+      if (reduceMotion) return render(target);
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: target,
+        duration: 1.6,
+        ease: "power2.out",
+        onUpdate: () => render(obj.val),
+      });
+    },
+  });
+});
+
+// ===============================
 //  Плавающая кнопка: сворачивание при скролле
 // ===============================
 const floatBook = document.querySelector("[data-float-book]");
@@ -212,6 +379,55 @@ if (floatBook) {
     },
   });
 }
+
+// ===============================
+//  Навигация — стекло при скролле, бургер, плавные якоря
+// ===============================
+const nav = document.querySelector("[data-nav]");
+const navMenu = document.querySelector("[data-nav-menu]");
+const navToggle = document.querySelector("[data-nav-toggle]");
+
+// Матовое стекло, когда ушли с самого верха
+if (nav) {
+  ScrollTrigger.create({
+    start: 60,
+    end: "max",
+    onToggle: (self) => nav.classList.toggle("is-scrolled", self.isActive),
+  });
+}
+
+// Открытие/закрытие мобильного меню
+function closeMenu() {
+  if (!navMenu) return;
+  navMenu.classList.remove("is-open");
+  nav.classList.remove("is-menu-open");
+  navToggle?.setAttribute("aria-expanded", "false");
+  lenis.start();
+}
+
+if (navToggle && navMenu) {
+  navToggle.addEventListener("click", () => {
+    const willOpen = !navMenu.classList.contains("is-open");
+    navMenu.classList.toggle("is-open", willOpen);
+    nav.classList.toggle("is-menu-open", willOpen);
+    navToggle.setAttribute("aria-expanded", String(willOpen));
+    // блокируем скролл под открытым меню
+    willOpen ? lenis.stop() : lenis.start();
+  });
+}
+
+// Плавный скролл по якорям (через Lenis) + закрытие меню
+document.querySelectorAll("[data-nav-link]").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    const href = link.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    closeMenu();
+    lenis.scrollTo(target, { offset: 0, duration: 1.4 });
+  });
+});
 
 // ===============================
 //  Пересчёт координат после полной загрузки

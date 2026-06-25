@@ -1,0 +1,95 @@
+// ===============================
+//  Отзывы — social proof на тёмно-зелёном градиенте со стеклом
+// ===============================
+.testimonials {
+  position: relative;
+  padding: clamp(7rem, 16vh, 12rem) 0;
+  background: linear-gradient(150deg, #14271d 0%, #1c3327 55%, #24412f 100%);
+  color: $color-light;
+  overflow: hidden;
+
+  // декоративные «водяные» блобы
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+  &::before {
+    width: 420px;
+    height: 420px;
+    top: -120px;
+    right: -80px;
+    background: radial-gradient(circle, rgba(201, 169, 110, 0.55), transparent 70%);
+  }
+  &::after {
+    width: 360px;
+    height: 360px;
+    bottom: -140px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(205, 184, 154, 0.45), transparent 70%);
+  }
+
+  .section-title {
+    color: $color-light;
+  }
+
+  &__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.4rem, 3vw, 2rem);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      max-width: 560px;
+      margin-inline: auto;
+    }
+  }
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: clamp(1.8rem, 3vw, 2.4rem);
+  border-radius: 22px;
+  @include glass(rgba(255, 255, 255, 0.1), 16px);
+
+  &__stars {
+    color: #ffd479;
+    letter-spacing: 0.15em;
+    font-size: 1rem;
+  }
+
+  &__quote {
+    font-family: $font-serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.95);
+    flex: 1;
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+
+  &__meta {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}

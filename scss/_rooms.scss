@@ -54,6 +54,20 @@
     filter: brightness(1.04);
   }
 
+  // стеклянный ценник поверх фото
+  &__badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    padding: 0.5rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: $color-light;
+    @include glass($glass-light-2, 10px);
+  }
+
   &__body {
     padding: 1.8rem 1.8rem 2rem;
     display: flex;
@@ -76,7 +90,7 @@
 
   &__foot {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     gap: 1rem;
     padding-top: 0.9rem;
@@ -88,20 +102,21 @@
     font-size: 0.82rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $color-accent;
+    color: $color-muted;
   }
 
-  &__price {
-    font-family: $font-serif;
-    font-size: 1.15rem;
-    color: $color-dark;
-    white-space: nowrap;
+  &__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: $color-accent;
+    transition: gap 0.25s ease;
+  }
 
-    small {
-      font-family: $font-sans;
-      font-size: 0.78rem;
-      color: $color-muted;
-    }
+  &:hover &__more {
+    gap: 0.7rem;
   }
 }
 

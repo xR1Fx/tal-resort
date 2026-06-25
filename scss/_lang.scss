@@ -1,0 +1,56 @@
+// ===============================
+//  Переключатель языка RU / KZ / EN
+// ===============================
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.25rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  &__btn {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0.34rem 0.7rem;
+    border-radius: 100px;
+    font-family: $font-sans;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.78);
+    background: transparent;
+    transition: color 0.25s ease, background-color 0.25s ease;
+
+    &:hover {
+      color: #fff;
+    }
+    &.is-active {
+      color: $color-dark;
+      background: $grad-gold;
+      box-shadow: 0 4px 14px rgba(169, 133, 63, 0.4);
+    }
+  }
+
+  // на планшете/мобиле прячем — переключатель уезжает в бургер-меню
+  @include tablet {
+    display: none;
+  }
+}
+
+// версия внутри мобильного стеклянного меню
+.lang--menu {
+  display: none; // на ПК скрыта
+  margin-top: 0.4rem;
+  border-color: rgba(255, 255, 255, 0.32);
+
+  @include tablet {
+    display: inline-flex; // показываем в открытом меню
+  }
+}

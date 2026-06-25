@@ -1,0 +1,66 @@
+// ===============================
+//  Аква-технологии — анимированные шкалы (gauges)
+// ===============================
+.facts {
+  padding: clamp(5rem, 12vh, 9rem) 0;
+  background: $color-ivory;
+
+  &__lead {
+    max-width: 60ch;
+    margin: 1.4rem auto 0;
+    color: $color-muted;
+    font-size: clamp(1rem, 2.4vw, 1.15rem);
+  }
+
+  &__grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.8rem, 4vw, 3rem) clamp(2rem, 6vw, 5rem);
+    max-width: 980px;
+    margin-inline: auto;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.gauge {
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+  }
+
+  &__label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: $color-dark;
+  }
+
+  &__value {
+    font-family: $font-serif;
+    font-size: clamp(1.25rem, 2.6vw, 1.5rem);
+    color: $color-accent-d;
+    white-space: nowrap;
+  }
+
+  &__track {
+    height: 8px;
+    border-radius: 100px;
+    background: rgba(20, 39, 29, 0.1);
+    overflow: hidden;
+  }
+
+  &__fill {
+    display: block;
+    height: 100%;
+    width: 0; // стартовое; ScrollTrigger расширяет до data-gauge%
+    border-radius: 100px;
+    background: $grad-gold;
+    box-shadow: 0 0 16px rgba(201, 169, 110, 0.5);
+  }
+}

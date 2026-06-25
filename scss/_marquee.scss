@@ -1,0 +1,32 @@
+// ===============================
+//  Бегущая строка — оживляет стыки секций
+// ===============================
+.marquee {
+  background: $color-dark;
+  color: $color-light;
+  padding: clamp(0.9rem, 2vw, 1.5rem) 0;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &__track {
+    display: inline-flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding-left: 2.5rem;
+    will-change: transform; // движение через GSAP (реагирует на скорость скролла)
+  }
+
+  &__item {
+    font-family: $font-serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.6vw, 2.1rem);
+    opacity: 0.95;
+  }
+
+  &__dot {
+    color: $color-accent-2;
+    font-size: 0.55em;
+    vertical-align: middle;
+  }
+}
+

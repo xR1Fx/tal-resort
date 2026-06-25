@@ -22,19 +22,18 @@
   }
 
   &__item {
+    position: relative;
     overflow: hidden;
     border-radius: 4px;
     margin: 0;
 
     img {
+      position: absolute;
+      inset: -12% 0 auto 0;
       width: 100%;
-      height: 100%;
+      height: 124%; // запас под параллакс по глубине (двигает GSAP)
       object-fit: cover;
-      transition: transform 0.7s ease;
-    }
-
-    &:hover img {
-      transform: scale(1.06);
+      will-change: transform;
     }
 
     // Крупные плитки для разнообразия раскладки

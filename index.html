@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
     rel="stylesheet"
   />
 
@@ -22,13 +22,84 @@
 </head>
 <body>
 
-  <!-- ============ HERO (раскрытие видео при скролле) ============ -->
-  <section class="hero" data-hero>
-    <!-- Фон по бокам от окошка -->
-    <div class="hero__bg"></div>
+  <!-- ============ Навигация (стеклянная) ============ -->
+  <header class="nav" data-nav>
+    <a class="nav__logo" href="#top" aria-label="Tal Resort — на главную">
+      <img src="assets/logo.svg" alt="" />
+      <span class="nav__logo-text">TAL RESORT<small>Aqua &amp; SPA</small></span>
+    </a>
+    <nav class="nav__links" aria-label="Основная навигация">
+      <a href="#experience" data-nav-link data-i18n="nav.about">О курорте</a>
+      <a href="#aqua" data-nav-link data-i18n="nav.aqua">Аква &amp; SPA</a>
+      <a href="#baths" data-nav-link data-i18n="nav.baths">Бани</a>
+      <a href="#stay" data-nav-link data-i18n="nav.stay">Проживание</a>
+      <a href="#restaurant" data-nav-link data-i18n="nav.restaurant">Ресторан</a>
+      <a href="#location" data-nav-link data-i18n="nav.contacts">Контакты</a>
+    </nav>
 
-    <!-- Центральное видео-окошко, раскрывается на весь экран -->
+    <!-- Переключатель языка (ПК) -->
+    <div class="lang" role="group" aria-label="Язык сайта">
+      <button class="lang__btn" type="button" data-lang="ru" aria-pressed="true">RU</button>
+      <button class="lang__btn" type="button" data-lang="kk" aria-pressed="false">KZ</button>
+      <button class="lang__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+
+    <a class="btn btn--glass nav__cta" href="#booking" data-nav-link data-i18n="nav.book">Забронировать</a>
+    <button class="nav__burger" data-nav-toggle aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Мобильное стеклянное меню -->
+  <div class="nav-menu" data-nav-menu>
+    <a href="#experience" data-nav-link data-i18n="nav.about">О курорте</a>
+    <a href="#aqua" data-nav-link data-i18n="nav.aqua">Аква &amp; SPA</a>
+    <a href="#baths" data-nav-link data-i18n="nav.baths">Бани</a>
+    <a href="#stay" data-nav-link data-i18n="nav.stay">Проживание</a>
+    <a href="#restaurant" data-nav-link data-i18n="nav.restaurant">Ресторан</a>
+    <a href="#location" data-nav-link data-i18n="nav.contacts">Контакты</a>
+
+    <!-- Переключатель языка (мобильное меню) -->
+    <div class="lang lang--menu" role="group" aria-label="Язык сайта">
+      <button class="lang__btn" type="button" data-lang="ru" aria-pressed="true">RU</button>
+      <button class="lang__btn" type="button" data-lang="kk" aria-pressed="false">KZ</button>
+      <button class="lang__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+
+    <a class="btn btn--primary" href="#booking" data-nav-link data-i18n="nav.bookFull">Забронировать отдых</a>
+  </div>
+
+  <!-- ============ HERO (раскрытие видео при скролле) ============ -->
+  <section class="hero" data-hero id="top">
+    <!-- Видео-фон за центральным окном (вместо фото домиков) -->
+    <div class="hero__bg">
+      <video
+        class="hero__bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        aria-hidden="true"
+        poster="assets/images/hero-cottages.jpg"
+      >
+        <source src="assets/hero-bg.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Центральное видео-окно (9:16): изначально без блюра, при раскрытии — блюр по бокам -->
     <div class="hero__frame" data-hero-frame>
+      <!-- Размытый слой: проявляется по бокам, когда окно расширяется -->
+      <video
+        class="hero__video-bg"
+        autoplay
+        muted
+        loop
+        playsinline
+        aria-hidden="true"
+      >
+        <source src="assets/hero.mp4" type="video/mp4" />
+      </video>
+      <!-- Вертикальное видео по центру -->
       <video
         class="hero__video"
         autoplay
@@ -37,8 +108,7 @@
         playsinline
         poster="assets/images/hero-cottages.jpg"
       >
-        <!-- Временное тестовое видео (заменить на финальное позже) -->
-        <source src="assets/test.mp4" type="video/mp4" />
+        <source src="assets/hero.mp4" type="video/mp4" />
       </video>
       <div class="hero__frame-tint"></div>
     </div>
@@ -46,9 +116,26 @@
     <!-- Заголовок поверх окошка: части разлетаются в стороны -->
     <div class="hero__content">
       <h1 class="hero__title">
-        <span class="hero__word" data-hero-left>Искусство</span>
-        <span class="hero__word" data-hero-right>семейного отдыха</span>
+        <span class="hero__word" data-hero-left data-i18n="hero.titleLeft">Искусство</span>
+        <span class="hero__word" data-hero-right data-i18n="hero.titleRight">семейного отдыха</span>
       </h1>
+    </div>
+
+    <!-- Соц-доказательство (стеклянный pill) -->
+    <div class="hero__proof" data-hero-proof>
+      <span class="hero__proof-stars" aria-hidden="true">★★★★★</span>
+      <span class="hero__proof-divider"></span>
+      <span class="hero__proof-text" data-i18n="hero.proof"><b>4.9</b> · более 1200 счастливых гостей</span>
+    </div>
+
+    <!-- Боковой текст (только ПК ≥1024px) — проявляется во время раскрытия -->
+    <div class="hero__side hero__side--left" data-hero-side-left aria-hidden="true">
+      <span class="hero__side-title" data-i18n="hero.sideTitle">Перезагрузка</span>
+    </div>
+    <div class="hero__side hero__side--right" data-hero-side-right aria-hidden="true">
+      <p class="hero__side-text" data-i18n="hero.sideText">
+        Оставьте городской шум позади. Наслаждайтесь безупречным сервисом и тишиной.
+      </p>
     </div>
   </section>
 
@@ -56,16 +143,16 @@
   <section class="about section" id="experience">
     <div class="container about__inner">
       <div class="about__text">
-        <span class="eyebrow" data-reveal>О курорте</span>
-        <h2 class="about__title" data-reveal>
+        <span class="eyebrow" data-reveal data-i18n="about.eyebrow">О курорте</span>
+        <h2 class="about__title" data-reveal data-i18n="about.title">
           Искусство семейного отдыха<br />у подножия Талгарских гор
         </h2>
-        <p class="about__lead" data-split>
+        <p class="about__lead" data-i18n="about.lead">
           Tal Resort — аква-курорт всего в часе езды от Алматы. Термальные
           бассейны 40°, кедровые бани и SPA, авторская кухня и уютные домики —
           всё, чтобы отдохнуть всей семьёй, не уезжая далеко от города.
         </p>
-        <p class="about__body" data-split>
+        <p class="about__body" data-i18n="about.body">
           Мы объединили городской комфорт с горным воздухом Талгарского района:
           подогреваемые бассейны под открытым небом, банный ритуал и неспешные
           ужины у камина. Приезжайте на день или оставайтесь с ночёвкой.
@@ -73,27 +160,210 @@
 
         <ul class="about__stats" data-reveal>
           <li class="about__stat">
-            <span class="about__stat-num">40°</span>
-            <span class="about__stat-label">Термальная вода</span>
+            <span class="about__stat-num" data-count="40" data-suffix="°">0</span>
+            <span class="about__stat-label" data-i18n="about.stat1">Термальная вода</span>
           </li>
           <li class="about__stat">
-            <span class="about__stat-num">1 час</span>
-            <span class="about__stat-label">От центра Алматы</span>
+            <span class="about__stat-num" data-count="1200" data-suffix="+">0</span>
+            <span class="about__stat-label" data-i18n="about.stat2">Счастливых гостей</span>
           </li>
           <li class="about__stat">
-            <span class="about__stat-num">5</span>
-            <span class="about__stat-label">Водных горок</span>
+            <span class="about__stat-num" data-count="5">0</span>
+            <span class="about__stat-label" data-i18n="about.stat3">Водных горок</span>
           </li>
           <li class="about__stat">
             <span class="about__stat-num">10–23</span>
-            <span class="about__stat-label">Часы аква-зоны</span>
+            <span class="about__stat-label" data-i18n="about.stat4label">Часы аква-зоны</span>
           </li>
         </ul>
       </div>
 
-      <div class="about__media" data-reveal>
+      <div class="about__media" data-img-reveal>
         <img src="assets/images/aqua-pool.jpg" alt="Подогреваемый термальный бассейн Tal Resort" loading="lazy" />
       </div>
+    </div>
+  </section>
+
+  <!-- ============ Бегущая строка ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" data-marquee>
+      <span class="marquee__item" data-i18n="marquee.1">Термальная вода 40°</span><span class="marquee__dot">●</span>
+      <span class="marquee__item" data-i18n="marquee.2">Кедровые бани</span><span class="marquee__dot">●</span>
+      <span class="marquee__item" data-i18n="marquee.3">Авторская кухня</span><span class="marquee__dot">●</span>
+      <span class="marquee__item" data-i18n="marquee.4">Горный воздух</span><span class="marquee__dot">●</span>
+      <span class="marquee__item" data-i18n="marquee.5">1 час от Алматы</span><span class="marquee__dot">●</span>
+      <!-- дубль для бесшовного цикла -->
+      <span class="marquee__item" data-i18n="marquee.1">Термальная вода 40°</span><span class="marquee__dot">●</span>
+      <span class="marquee__item" data-i18n="marquee.2">Кедровые бани</span><span class="marquee__dot">●</span>
+      <span class="marquee__item" data-i18n="marquee.3">Авторская кухня</span><span class="marquee__dot">●</span>
+      <span class="marquee__item" data-i18n="marquee.4">Горный воздух</span><span class="marquee__dot">●</span>
+      <span class="marquee__item" data-i18n="marquee.5">1 час от Алматы</span><span class="marquee__dot">●</span>
+    </div>
+  </div>
+
+  <!-- ============ ВПЕЧАТЛЕНИЯ — липкие полноэкранные карточки ============ -->
+  <section class="stack" data-stack>
+    <!-- 01 · Аква-зона -->
+    <article class="stack__card" id="aqua">
+      <div class="stack__media">
+        <img src="assets/images/aqua-pool.jpg" alt="Аква-зона и термальные бассейны" loading="lazy" />
+      </div>
+      <div class="stack__overlay"></div>
+      <div class="container stack__content">
+        <span class="stack__index" data-stack-anim>01 — 03</span>
+        <span class="stack__eyebrow" data-stack-anim data-i18n="stack.aqua.eyebrow">Аква-зона &amp; SPA</span>
+        <h2 class="stack__title" data-stack-anim data-i18n="stack.aqua.title">Вода,<br />которая лечит</h2>
+        <p class="stack__text" data-stack-anim data-i18n="stack.aqua.text">
+          Подогреваемые бассейны под открытым небом, пять водных горок и
+          термальные зоны 40° — для всей семьи и в любой сезон.
+        </p>
+        <ul class="stack__tags" data-stack-anim>
+          <li data-i18n="stack.aqua.tag1">40° круглый год</li>
+          <li data-i18n="stack.aqua.tag2">5 горок</li>
+          <li data-i18n="stack.aqua.tag3">SPA &amp; массаж</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- 02 · Бани -->
+    <article class="stack__card" id="baths">
+      <div class="stack__media">
+        <img src="assets/images/baths-steam.jpg" alt="Бани на дровах" loading="lazy" />
+      </div>
+      <div class="stack__overlay"></div>
+      <div class="container stack__content">
+        <span class="stack__index" data-stack-anim>02 — 03</span>
+        <span class="stack__eyebrow" data-stack-anim data-i18n="stack.baths.eyebrow">Банный ритуал</span>
+        <h2 class="stack__title" data-stack-anim data-i18n="stack.baths.title">Три бани,<br />три характера</h2>
+        <p class="stack__text" data-stack-anim data-i18n="stack.baths.text">
+          Алтайская кедровая, русская парная и соляная комната — живой жар,
+          веники и мягкий микроклимат. Настоящий ритуал тепла и пара.
+        </p>
+        <ul class="stack__tags" data-stack-anim>
+          <li data-i18n="stack.baths.tag1">Кедровая</li>
+          <li data-i18n="stack.baths.tag2">Русская парная</li>
+          <li data-i18n="stack.baths.tag3">Соляная комната</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- 03 · Ресторан -->
+    <article class="stack__card" id="restaurant">
+      <div class="stack__media">
+        <img src="assets/images/restaurant-hall.jpg" alt="Ресторан авторской кухни" loading="lazy" />
+      </div>
+      <div class="stack__overlay"></div>
+      <div class="container stack__content">
+        <span class="stack__index" data-stack-anim>03 — 03</span>
+        <span class="stack__eyebrow" data-stack-anim data-i18n="stack.rest.eyebrow">Ресторан</span>
+        <h2 class="stack__title" data-stack-anim data-i18n="stack.rest.title">Кухня<br />у камина</h2>
+        <p class="stack__text" data-stack-anim data-i18n="stack.rest.text">
+          Сезонное меню от шеф-повара из локальных продуктов, уютный зал с
+          камином и восточная терраса — вкусно в течение всего дня.
+        </p>
+        <ul class="stack__tags" data-stack-anim>
+          <li data-i18n="stack.rest.tag1">A la carte</li>
+          <li data-i18n="stack.rest.tag2">Восточная терраса</li>
+          <li data-i18n="stack.rest.tag3">Камин</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ АКВА-ТЕХНОЛОГИИ — анимированные шкалы ============ -->
+  <section class="facts section" id="facts">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow" data-reveal data-i18n="facts.eyebrow">Технологии воды</span>
+        <h2 class="section-title" data-reveal data-i18n="facts.title">Аква-зона в цифрах</h2>
+        <p class="facts__lead" data-reveal data-i18n="facts.lead">
+          За идеальным отдыхом стоит инженерия: вода нужной температуры,
+          многоступенчатая очистка и продуманный график работы.
+        </p>
+      </header>
+
+      <ul class="facts__grid" data-gauges>
+        <li class="gauge" data-reveal>
+          <div class="gauge__head">
+            <span class="gauge__label" data-i18n="facts.1label">Температура термальной воды</span>
+            <span class="gauge__value" data-i18n="facts.1value">40 °C</span>
+          </div>
+          <div class="gauge__track"><span class="gauge__fill" data-gauge="80"></span></div>
+        </li>
+        <li class="gauge" data-reveal>
+          <div class="gauge__head">
+            <span class="gauge__label" data-i18n="facts.2label">Ступеней фильтрации воды</span>
+            <span class="gauge__value" data-i18n="facts.2value">7 ступеней</span>
+          </div>
+          <div class="gauge__track"><span class="gauge__fill" data-gauge="100"></span></div>
+        </li>
+        <li class="gauge" data-reveal>
+          <div class="gauge__head">
+            <span class="gauge__label" data-i18n="facts.3label">Водных горок для детей</span>
+            <span class="gauge__value" data-i18n="facts.3value">5 горок</span>
+          </div>
+          <div class="gauge__track"><span class="gauge__fill" data-gauge="83"></span></div>
+        </li>
+        <li class="gauge" data-reveal>
+          <div class="gauge__head">
+            <span class="gauge__label" data-i18n="facts.4label">Часов работы аква-зоны в день</span>
+            <span class="gauge__value" data-i18n="facts.4value">13 часов</span>
+          </div>
+          <div class="gauge__track"><span class="gauge__fill" data-gauge="55"></span></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ ИДЕАЛЬНЫЙ ДЕНЬ — таймлайн ============ -->
+  <section class="day section" id="day">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow" data-reveal data-i18n="day.eyebrow">Сценарий</span>
+        <h2 class="section-title" data-reveal data-i18n="day.title">Ваш идеальный день</h2>
+        <p class="day__lead" data-reveal data-i18n="day.lead">
+          От утреннего SPA до тихого вечера в номере — маршрут, по которому
+          хочется замедлиться.
+        </p>
+      </header>
+
+      <ol class="day__timeline">
+        <li class="day__step" data-reveal>
+          <span class="day__time" data-i18n="day.1time">11:00</span>
+          <div class="day__body">
+            <h3 class="day__step-title" data-i18n="day.1title">Приезд и SPA-ритуал</h3>
+            <p class="day__step-text" data-i18n="day.1text">Заселение, травяной чай и первый расслабляющий массаж после дороги.</p>
+          </div>
+        </li>
+        <li class="day__step" data-reveal>
+          <span class="day__time" data-i18n="day.2time">14:00</span>
+          <div class="day__body">
+            <h3 class="day__step-title" data-i18n="day.2title">Термальные бассейны</h3>
+            <p class="day__step-text" data-i18n="day.2text">Подогреваемая вода 40° под открытым небом и пять горок для детей.</p>
+          </div>
+        </li>
+        <li class="day__step" data-reveal>
+          <span class="day__time" data-i18n="day.3time">17:00</span>
+          <div class="day__body">
+            <h3 class="day__step-title" data-i18n="day.3title">Банный ритуал</h3>
+            <p class="day__step-text" data-i18n="day.3text">Алтайская кедровая, русская парная и соляная комната с веником и паром.</p>
+          </div>
+        </li>
+        <li class="day__step" data-reveal>
+          <span class="day__time" data-i18n="day.4time">19:30</span>
+          <div class="day__body">
+            <h3 class="day__step-title" data-i18n="day.4title">Ужин у камина</h3>
+            <p class="day__step-text" data-i18n="day.4text">Сезонное меню от шефа, живая музыка и восточная терраса.</p>
+          </div>
+        </li>
+        <li class="day__step" data-reveal>
+          <span class="day__time" data-i18n="day.5time">22:00</span>
+          <div class="day__body">
+            <h3 class="day__step-title" data-i18n="day.5title">Отдых в номере</h3>
+            <p class="day__step-text" data-i18n="day.5text">Тишина, горный воздух и крепкий сон вдали от города.</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -101,24 +371,25 @@
   <section class="rooms section" id="stay">
     <div class="container">
       <header class="section-head">
-        <span class="eyebrow" data-reveal>Проживание</span>
-        <h2 class="section-title" data-reveal>Номера и домики</h2>
+        <span class="eyebrow" data-reveal data-i18n="rooms.eyebrow">Проживание</span>
+        <h2 class="section-title" data-reveal data-i18n="rooms.title">Номера и домики</h2>
       </header>
 
       <div class="rooms__grid">
         <article class="room-card" data-reveal>
           <div class="room-card__media">
             <img src="assets/images/stay-room.jpg" alt="Номер Стандарт" loading="lazy" />
+            <span class="room-card__badge" data-i18n="rooms.r1.badge">от 75 000 ₸ / ночь</span>
           </div>
           <div class="room-card__body">
-            <h3 class="room-card__title">Стандарт</h3>
-            <p class="room-card__desc" data-split>
+            <h3 class="room-card__title" data-i18n="rooms.r1.title">Стандарт</h3>
+            <p class="room-card__desc" data-i18n="rooms.r1.desc">
               Уютный номер с городским комфортом и всем необходимым для отдыха
               вдвоём. Тёплый текстиль, мягкий свет, тишина.
             </p>
             <div class="room-card__foot">
-              <span class="room-card__meta">2 гостя</span>
-              <span class="room-card__price">от 75 000 ₸<small>/ночь</small></span>
+              <span class="room-card__meta" data-i18n="rooms.r1.meta">2 гостя</span>
+              <span class="room-card__more" data-i18n="rooms.more">Подробнее →</span>
             </div>
           </div>
         </article>
@@ -126,16 +397,17 @@
         <article class="room-card" data-reveal>
           <div class="room-card__media">
             <img src="assets/images/terrace.jpg" alt="Номер Люкс с террасой" loading="lazy" />
+            <span class="room-card__badge" data-i18n="rooms.r2.badge">от 105 000 ₸ / ночь</span>
           </div>
           <div class="room-card__body">
-            <h3 class="room-card__title">Люкс</h3>
-            <p class="room-card__desc" data-split>
+            <h3 class="room-card__title" data-i18n="rooms.r2.title">Люкс</h3>
+            <p class="room-card__desc" data-i18n="rooms.r2.desc">
               Просторный номер с приватной террасой и видом на горы. Больше
               пространства, света и приватности для семьи.
             </p>
             <div class="room-card__foot">
-              <span class="room-card__meta">2–4 гостя</span>
-              <span class="room-card__price">от 105 000 ₸<small>/ночь</small></span>
+              <span class="room-card__meta" data-i18n="rooms.r2.meta">2–4 гостя</span>
+              <span class="room-card__more" data-i18n="rooms.more">Подробнее →</span>
             </div>
           </div>
         </article>
@@ -143,16 +415,17 @@
         <article class="room-card" data-reveal>
           <div class="room-card__media">
             <img src="assets/images/hero-cottages.jpg" alt="Гостевой дом" loading="lazy" />
+            <span class="room-card__badge" data-i18n="rooms.r3.badge">от 80 000 ₸ / ночь</span>
           </div>
           <div class="room-card__body">
-            <h3 class="room-card__title">Гостевой дом</h3>
-            <p class="room-card__desc" data-split>
+            <h3 class="room-card__title" data-i18n="rooms.r3.title">Гостевой дом</h3>
+            <p class="room-card__desc" data-i18n="rooms.r3.desc">
               Отдельный дом для большой компании или семьи: собственное
               пространство, кухня и терраса под открытым небом.
             </p>
             <div class="room-card__foot">
-              <span class="room-card__meta">4–5 гостей</span>
-              <span class="room-card__price">от 80 000 ₸<small>/ночь</small></span>
+              <span class="room-card__meta" data-i18n="rooms.r3.meta">4–5 гостей</span>
+              <span class="room-card__more" data-i18n="rooms.more">Подробнее →</span>
             </div>
           </div>
         </article>
@@ -160,92 +433,108 @@
         <article class="room-card" data-reveal>
           <div class="room-card__media">
             <img src="assets/images/building-logo.jpg" alt="Дом Celebrity" loading="lazy" />
+            <span class="room-card__badge" data-i18n="rooms.r4.badge">от 190 000 ₸ / ночь</span>
           </div>
           <div class="room-card__body">
-            <h3 class="room-card__title">Дом «Celebrity»</h3>
-            <p class="room-card__desc" data-split>
+            <h3 class="room-card__title" data-i18n="rooms.r4.title">Дом «Celebrity»</h3>
+            <p class="room-card__desc" data-i18n="rooms.r4.desc">
               Premium-резиденция для большой компании: максимум простора,
               приватности и сервиса для особенных событий.
             </p>
             <div class="room-card__foot">
-              <span class="room-card__meta">6+ гостей</span>
-              <span class="room-card__price">от 190 000 ₸<small>/ночь</small></span>
+              <span class="room-card__meta" data-i18n="rooms.r4.meta">6+ гостей</span>
+              <span class="room-card__more" data-i18n="rooms.more">Подробнее →</span>
             </div>
           </div>
         </article>
       </div>
 
-      <p class="rooms__note" data-reveal>
+      <p class="rooms__note" data-reveal data-i18n="rooms.note">
         Также доступны одноместные, полулюкс и семейные категории — от 45 000 ₸ за ночь.
       </p>
     </div>
   </section>
 
-  <!-- ============ БЛОК 4: УСЛУГИ И SPA ============ -->
-  <section class="amenities section" id="amenities">
+  <!-- ============ МЕНЮ РЕСТОРАНА ============ -->
+  <section class="restaurant section" id="menu">
     <div class="container">
       <header class="section-head">
-        <span class="eyebrow" data-reveal>Услуги &amp; SPA</span>
-        <h2 class="section-title" data-reveal>Аква-зона, бани и SPA</h2>
+        <span class="eyebrow" data-reveal data-i18n="rest.eyebrow">Меню ресторана</span>
+        <h2 class="section-title" data-reveal data-i18n="rest.title">Вкус Tal Resort</h2>
       </header>
 
-      <div class="amenities__grid">
-        <article class="amenity" data-reveal>
-          <div class="amenity__media">
-            <img src="assets/images/aqua-pool.jpg" alt="Аква-зона и бассейны" loading="lazy" />
-          </div>
-          <h3 class="amenity__title">Аква-зона и SPA</h3>
-          <p class="amenity__desc">
-            Подогреваемые бассейны, пять горок и термальные зоны 40° для всей
-            семьи.
-          </p>
-        </article>
-
-        <article class="amenity" data-reveal>
-          <div class="amenity__media">
-            <img src="assets/images/baths-steam.jpg" alt="Бани" loading="lazy" />
-          </div>
-          <h3 class="amenity__title">Бани</h3>
-          <p class="amenity__desc">
-            Алтайская кедровая, русская и соляная — настоящий ритуал тепла и
-            пара.
-          </p>
-        </article>
-
-        <article class="amenity" data-reveal>
-          <div class="amenity__media">
-            <img src="assets/images/restaurant-hall.jpg" alt="Ресторан авторской кухни" loading="lazy" />
-          </div>
-          <h3 class="amenity__title">Ресторан</h3>
-          <p class="amenity__desc">
-            A la carte у камина и восточная терраса — вкусно в течение всего
-            дня.
-          </p>
-        </article>
-
-        <article class="amenity" data-reveal>
-          <div class="amenity__media">
-            <img src="assets/images/baths-salt.jpg" alt="SPA-ритуалы" loading="lazy" />
-          </div>
-          <h3 class="amenity__title">SPA-ритуалы</h3>
-          <p class="amenity__desc">
-            Массаж, соляная комната и уходовые программы для полной перезагрузки.
-          </p>
-        </article>
-      </div>
-
-      <!-- Билет на день -->
-      <div class="amenities__pass" data-reveal>
-        <div class="amenities__pass-text">
-          <span class="amenities__pass-title">Билет на день</span>
-          <span class="amenities__pass-sub">Доступ к аква-зоне и SPA · 10:00–23:00</span>
+      <div class="restaurant__inner">
+        <div class="restaurant__media" data-img-reveal>
+          <img src="assets/images/restaurant-hall.jpg" alt="Зал ресторана Tal Resort" loading="lazy" />
+          <span class="restaurant__media-cap" data-i18n="rest.cap">A la carte · восточная терраса</span>
         </div>
-        <ul class="amenities__pass-prices">
-          <li><b>15 000 ₸</b><span>взрослый, будни</span></li>
-          <li><b>20 000 ₸</b><span>взрослый, выходные</span></li>
-          <li><b>10 000 ₸</b><span>дети 3–12 лет</span></li>
-        </ul>
+
+        <div class="restaurant__body">
+          <p class="restaurant__lead" data-i18n="rest.lead">
+            Сезонное меню от шеф-повара из локальных продуктов, уютный зал с
+            камином и восточная терраса — вкусно в течение всего дня.
+          </p>
+          <ul class="restaurant__menu" data-reveal>
+            <li class="restaurant__item">
+              <span class="restaurant__dish" data-i18n="rest.d1">Бешбармак по-домашнему<em>томлёное мясо, тонкое тесто</em></span>
+              <span class="restaurant__price" data-i18n="rest.d1price">от 4 500 ₸</span>
+            </li>
+            <li class="restaurant__item">
+              <span class="restaurant__dish" data-i18n="rest.d2">Стейк на углях<em>мраморная говядина, овощи гриль</em></span>
+              <span class="restaurant__price" data-i18n="rest.d2price">от 7 900 ₸</span>
+            </li>
+            <li class="restaurant__item">
+              <span class="restaurant__dish" data-i18n="rest.d3">Плов в казане<em>по-восточному, на дровах</em></span>
+              <span class="restaurant__price" data-i18n="rest.d3price">от 3 800 ₸</span>
+            </li>
+            <li class="restaurant__item">
+              <span class="restaurant__dish" data-i18n="rest.d4">Десерты и чайная карта<em>горные травы, восточные сладости</em></span>
+              <span class="restaurant__price" data-i18n="rest.d4price">от 1 500 ₸</span>
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ ЦЕНЫ / БИЛЕТ НА ДЕНЬ ============ -->
+  <section class="prices section" id="prices">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow" data-reveal data-i18n="prices.eyebrow">Билет на день</span>
+        <h2 class="section-title" data-reveal data-i18n="prices.title">Доступ к аква-зоне и&nbsp;SPA</h2>
+      </header>
+
+      <div class="prices__grid">
+        <article class="price-card" data-reveal>
+          <span class="price-card__label" data-i18n="prices.p1label">Взрослый · будни</span>
+          <div class="price-card__amount">15 000<small> ₸</small></div>
+          <span class="price-card__sub" data-i18n="prices.p1sub">Понедельник — пятница</span>
+          <div class="price-card__hr"></div>
+          <span class="price-card__time" data-i18n="prices.p1time">Аква-зона и SPA · 10:00–23:00</span>
+        </article>
+
+        <article class="price-card price-card--featured" data-reveal>
+          <span class="price-card__badge" data-i18n="prices.p2badge">Популярно</span>
+          <span class="price-card__label" data-i18n="prices.p2label">Взрослый · выходные</span>
+          <div class="price-card__amount">20 000<small> ₸</small></div>
+          <span class="price-card__sub" data-i18n="prices.p2sub">Суббота, воскресенье, праздники</span>
+          <div class="price-card__hr"></div>
+          <span class="price-card__time" data-i18n="prices.p2time">Аква-зона и SPA · 10:00–23:00</span>
+        </article>
+
+        <article class="price-card" data-reveal>
+          <span class="price-card__label" data-i18n="prices.p3label">Детский</span>
+          <div class="price-card__amount">10 000<small> ₸</small></div>
+          <span class="price-card__sub" data-i18n="prices.p3sub">Дети 3–12 лет</span>
+          <div class="price-card__hr"></div>
+          <span class="price-card__time" data-i18n="prices.p3time">Включая анимацию</span>
+        </article>
+      </div>
+
+      <p class="prices__hint" data-reveal data-i18n="prices.hint">
+        Дети до 3 лет — бесплатно. Проживание оплачивается отдельно.
+      </p>
     </div>
   </section>
 
@@ -253,8 +542,8 @@
   <section class="gallery section" id="gallery">
     <div class="container">
       <header class="section-head">
-        <span class="eyebrow" data-reveal>Атмосфера</span>
-        <h2 class="section-title" data-reveal>Моменты Tal Resort</h2>
+        <span class="eyebrow" data-reveal data-i18n="gallery.eyebrow">Атмосфера</span>
+        <h2 class="section-title" data-reveal data-i18n="gallery.title">Моменты Tal Resort</h2>
       </header>
 
       <div class="gallery__grid">
@@ -277,16 +566,131 @@
     </div>
   </section>
 
+  <!-- ============ Отзывы (social proof) ============ -->
+  <section class="testimonials section" id="reviews">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow" data-reveal data-i18n="rev.eyebrow">Отзывы гостей</span>
+        <h2 class="section-title" data-reveal data-i18n="rev.title">Нам доверяют отдых</h2>
+      </header>
+
+      <div class="testimonials__grid">
+        <article class="testimonial" data-reveal>
+          <span class="testimonial__stars" aria-hidden="true">★★★★★</span>
+          <p class="testimonial__quote" data-i18n="rev.q1">
+            Термальные бассейны — это что-то невероятное. Дети не вылезали из
+            воды, а мы наконец-то выдохнули. Вернёмся ещё не раз.
+          </p>
+          <div class="testimonial__author">
+            <span class="testimonial__name" data-i18n="rev.n1">Айгерим</span>
+            <span class="testimonial__meta" data-i18n="rev.m1">Семейный отдых · Алматы</span>
+          </div>
+        </article>
+
+        <article class="testimonial" data-reveal>
+          <span class="testimonial__stars" aria-hidden="true">★★★★★</span>
+          <p class="testimonial__quote" data-i18n="rev.q2">
+            Кедровая баня и SPA после рабочей недели — идеальная перезагрузка.
+            Час от города, а ощущение, будто уехал далеко в горы.
+          </p>
+          <div class="testimonial__author">
+            <span class="testimonial__name" data-i18n="rev.n2">Данияр</span>
+            <span class="testimonial__meta" data-i18n="rev.m2">Выходные вдвоём</span>
+          </div>
+        </article>
+
+        <article class="testimonial" data-reveal>
+          <span class="testimonial__stars" aria-hidden="true">★★★★★</span>
+          <p class="testimonial__quote" data-i18n="rev.q3">
+            Снимали гостевой дом на день рождения. Сервис, кухня, атмосфера —
+            всё на высоте. Гости до сих пор вспоминают.
+          </p>
+          <div class="testimonial__author">
+            <span class="testimonial__name" data-i18n="rev.n3">Мадина</span>
+            <span class="testimonial__meta" data-i18n="rev.m3">Праздник компанией</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ КАК ДОБРАТЬСЯ ============ -->
+  <section class="location section" id="location">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow" data-reveal data-i18n="loc.eyebrow">Как добраться</span>
+        <h2 class="section-title" data-reveal data-i18n="loc.title">Час от Алматы — и вы на месте</h2>
+      </header>
+
+      <div class="location__inner">
+        <div class="location__map" data-reveal>
+          <iframe
+            src="https://www.google.com/maps?q=43.2986,77.2297&z=11&output=embed"
+            loading="lazy"
+            title="Tal Resort на карте"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div class="location__card" data-reveal>
+          <div class="location__item">
+            <span class="location__label" data-i18n="loc.addrLabel">Адрес</span>
+            <span class="location__value" data-i18n="loc.addrValue">Талгарский район, Алматинская область</span>
+          </div>
+          <div class="location__item">
+            <span class="location__label" data-i18n="loc.timeLabel">Время в пути</span>
+            <span class="location__value" data-i18n="loc.timeValue">≈ 1 час от центра Алматы</span>
+          </div>
+          <div class="location__item">
+            <span class="location__label" data-i18n="loc.phoneLabel">Телефон</span>
+            <span class="location__value"><a href="tel:+77011002827">+7 701 100 28 27</a></span>
+          </div>
+          <div class="location__item">
+            <span class="location__label" data-i18n="loc.hoursLabel">Часы аква-зоны</span>
+            <span class="location__value" data-i18n="loc.hoursValue">Ежедневно · 10:00–23:00</span>
+          </div>
+          <div class="location__actions">
+            <a class="btn btn--primary" href="https://wa.me/77011002827" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn--glass" href="https://2gis.kz/almaty/firm/tal_resort" target="_blank" rel="noopener" data-i18n="loc.gis">Открыть в 2ГИС</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta__panel" data-reveal>
+        <span class="cta__panel-eyebrow" data-i18n="cta.eyebrow">Готовы замедлиться?</span>
+        <h2 class="cta__panel-title" data-i18n="cta.title">Забронируйте отдых<br />в Tal Resort</h2>
+        <p class="cta__panel-text" data-i18n="cta.text">
+          Термальные бассейны 40°, бани, SPA и уютные домики всего в часе от
+          Алматы. Напишите нам — подберём даты и категорию под вашу компанию.
+        </p>
+        <div class="cta__panel-actions">
+          <a class="btn btn--primary" href="https://wa.me/77011002827" target="_blank" rel="noopener" data-i18n="cta.wa">
+            Написать в WhatsApp
+          </a>
+          <a class="btn btn--glass" href="tel:+77011002827">+7 701 100 28 27</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ БЛОК 6: ФУТЕР И КОНТАКТЫ ============ -->
   <footer class="footer section" id="booking">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <img class="footer__logo" src="assets/logo.svg" alt="Tal Resort" />
-        <p class="footer__tagline">Аква-курорт у подножия Талгарских гор.</p>
+        <div class="footer__brand-lockup">
+          <img class="footer__logo" src="assets/logo.svg" alt="" />
+          <span class="footer__brand-name">TAL RESORT<small>Aqua &amp; SPA</small></span>
+        </div>
+        <p class="footer__tagline" data-i18n="footer.tagline">Аква-курорт у подножия Талгарских гор.</p>
       </div>
 
       <div class="footer__col">
-        <h4 class="footer__heading">Контакты</h4>
+        <h4 class="footer__heading" data-i18n="footer.contactsHead">Контакты</h4>
         <ul class="footer__list">
           <li><a href="tel:+77011002827">+7 701 100 28 27</a></li>
           <li><a href="https://wa.me/77011002827" target="_blank" rel="noopener">WhatsApp</a></li>
@@ -296,22 +700,22 @@
       </div>
 
       <div class="footer__col">
-        <h4 class="footer__heading">Адрес</h4>
-        <address class="footer__address">
+        <h4 class="footer__heading" data-i18n="footer.addrHead">Адрес</h4>
+        <address class="footer__address" data-i18n="footer.address">
           Талгарский район,<br />
           Алматинская область<br />
           Час от центра Алматы<br />
           Аква-зона: 10:00–23:00
         </address>
-        <a class="footer__link" href="https://2gis.kz/almaty/firm/tal_resort" target="_blank" rel="noopener">
+        <a class="footer__link" href="https://2gis.kz/almaty/firm/tal_resort" target="_blank" rel="noopener" data-i18n="footer.gis">
           Открыть в 2ГИС →
         </a>
       </div>
 
       <div class="footer__col footer__cta">
-        <h4 class="footer__heading">Бронирование</h4>
-        <p class="footer__note">Напишите нам, чтобы забронировать даты или билет на день.</p>
-        <a href="https://wa.me/77011002827" class="footer__btn" target="_blank" rel="noopener">
+        <h4 class="footer__heading" data-i18n="footer.bookHead">Бронирование</h4>
+        <p class="footer__note" data-i18n="footer.bookNote">Напишите нам, чтобы забронировать даты или билет на день.</p>
+        <a href="https://wa.me/77011002827" class="footer__btn" target="_blank" rel="noopener" data-i18n="footer.bookBtn">
           Забронировать отдых
         </a>
       </div>
@@ -319,8 +723,8 @@
 
     <div class="footer__bottom">
       <div class="container footer__bottom-inner">
-        <span>© 2026 TAL RESORT — Aqua &amp; SPA. Все права защищены.</span>
-        <span>Талгар · Алматинская область</span>
+        <span data-i18n="footer.copy">© 2026 TAL RESORT — Aqua &amp; SPA. Все права защищены.</span>
+        <span data-i18n="footer.region">Талгар · Алматинская область</span>
       </div>
     </div>
   </footer>
@@ -334,7 +738,7 @@
     rel="noopener"
     aria-label="Забронировать через WhatsApp"
   >
-    <span class="float-book__label">Забронировать отдых</span>
+    <span class="float-book__label" data-i18n="float.book">Забронировать отдых</span>
     <span class="float-book__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
         <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.27.86 5.83 2.41a8.2 8.2 0 0 1 2.42 5.83c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24Zm-4.5 4.43c-.21 0-.55.08-.84.39s-1.1 1.07-1.1 2.62 1.13 3.04 1.29 3.25c.16.21 2.22 3.39 5.38 4.75.75.32 1.34.51 1.8.66.76.24 1.45.21 1.99.13.61-.09 1.87-.76 2.13-1.5.26-.74.26-1.37.18-1.5-.08-.13-.29-.21-.6-.37-.31-.16-1.87-.92-2.16-1.03-.29-.11-.5-.16-.71.16-.21.31-.81 1.02-1 1.23-.18.21-.37.24-.68.08-.31-.16-1.33-.49-2.53-1.56-.94-.83-1.57-1.86-1.75-2.17-.18-.31-.02-.48.14-.63.14-.14.31-.37.47-.55.16-.18.21-.31.31-.52.11-.21.05-.39-.03-.55-.08-.16-.71-1.72-.97-2.35-.26-.62-.52-.54-.71-.55-.18-.01-.39-.01-.6-.01Z"/>
@@ -347,6 +751,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 
+  <!-- Языки (RU/KZ/EN) -->
+  <script src="js/i18n.js"></script>
   <!-- Наш скрипт -->
   <script src="js/script.js"></script>
 
