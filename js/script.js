@@ -142,8 +142,10 @@ if (!reduceMotion) {
       items.forEach((item) => gridItems.add(item));
 
       gsap.from(items, {
-        ...revealVars,
-        stagger: 0.12,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power2.out",
+        stagger: 0.1,
         scrollTrigger: {
           trigger: grid,
           start: "top 80%",
