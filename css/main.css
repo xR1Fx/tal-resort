@@ -936,6 +936,11 @@ a {
 .rooms__group + .rooms__group {
   margin-top: clamp(3.5rem, 8vw, 6rem);
 }
+@media (max-width: 600px) {
+  .rooms__group + .rooms__group {
+    margin-top: 3rem;
+  }
+}
 .rooms__group-title {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   font-weight: 400;
@@ -944,6 +949,12 @@ a {
   margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
   padding-bottom: 0.9rem;
   border-bottom: 1px solid rgba(20, 39, 29, 0.12);
+}
+@media (max-width: 600px) {
+  .rooms__group-title {
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.65rem;
+  }
 }
 .rooms__grid {
   display: grid;
