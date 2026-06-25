@@ -581,9 +581,58 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
     if (e.key === "Escape" && modal.classList.contains("is-open")) close();
   });
 
-  // навигация по галерее
+  // навигация по галерее: стрелки
   btnPrev.addEventListener("click", () => goTo(index - 1));
   btnNext.addEventListener("click", () => goTo(index + 1));
+
+  // навигация по галерее: свайпы на телефоне
+  const gallery = modal.querySelector(".room-modal__gallery");
+  if (gallery) {
+    let sx = 0,
+      sy = 0,
+      axis = null,
+      active = false;
+
+    gallery.addEventListener(
+      "touchstart",
+      (e) => {
+        const t = e.touches[0];
+        sx = t.clientX;
+        sy = t.clientY;
+        axis = null;
+        active = true;
+      },
+      { passive: true }
+    );
+
+    gallery.addEventListener(
+      "touchmove",
+      (e) => {
+        if (!active) return;
+        const t = e.touches[0];
+        const dx = t.clientX - sx;
+        const dy = t.clientY - sy;
+        if (axis === null && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+          axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+        }
+        // горизонтальный свайп — листаем галерею, гасим прокрутку модалки
+        if (axis === "x") e.preventDefault();
+      },
+      { passive: false }
+    );
+
+    gallery.addEventListener(
+      "touchend",
+      (e) => {
+        if (!active) return;
+        active = false;
+        if (axis !== "x") return; // вертикаль — это была прокрутка
+        const dx = e.changedTouches[0].clientX - sx;
+        if (Math.abs(dx) > 40) goTo(index + (dx < 0 ? 1 : -1));
+      },
+      { passive: true }
+    );
+  }
   document.addEventListener("keydown", (e) => {
     if (!modal.classList.contains("is-open")) return;
     if (e.key === "ArrowLeft") goTo(index - 1);

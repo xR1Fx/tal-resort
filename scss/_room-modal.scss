@@ -55,6 +55,8 @@
       grid-template-columns: 1fr;
       max-height: 92vh;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
     }
   }
 
@@ -64,6 +66,8 @@
     background: $color-dark;
     overflow: hidden;
     min-height: 340px;
+    // вертикальный жест скроллит модалку, горизонтальный — листает (JS)
+    touch-action: pan-y;
 
     @include tablet {
       aspect-ratio: 4 / 3;

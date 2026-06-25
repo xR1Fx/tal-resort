@@ -1105,6 +1105,8 @@ a {
     grid-template-columns: 1fr;
     max-height: 92vh;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 }
 .room-modal__gallery {
@@ -1112,6 +1114,7 @@ a {
   background: #14271d;
   overflow: hidden;
   min-height: 340px;
+  touch-action: pan-y;
 }
 @media (max-width: 900px) {
   .room-modal__gallery {
