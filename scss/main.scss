@@ -319,11 +319,12 @@ a {
       inset 0 0 22px rgba(255, 255, 255, 0.18); // внутренний холодный блик
     will-change: width, height, border-radius;
 
-    // на телефоне окно чуть компактнее — больше воздуха вокруг (пропорции 9:16)
+    // на телефоне — компактное стартовое окно (пропорции 9:16),
+    // которое затем эффектно раскрывается на весь экран
     @include mobile {
-      width: min(33.8vh, 300px);
-      height: min(60vh, 534px);
-      border-radius: 20px;
+      width: min(27vh, 240px);
+      height: min(48vh, 426px);
+      border-radius: 18px;
     }
   }
 

@@ -205,9 +205,9 @@ a {
 }
 @media (max-width: 600px) {
   .hero__frame {
-    width: min(33.8vh, 300px);
-    height: min(60vh, 534px);
-    border-radius: 20px;
+    width: min(27vh, 240px);
+    height: min(48vh, 426px);
+    border-radius: 18px;
   }
 }
 .hero__video, .hero__video-bg {
