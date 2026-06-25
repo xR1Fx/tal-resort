@@ -379,7 +379,9 @@
         <h2 class="section-title" data-reveal data-i18n="rooms.title">Номера и домики</h2>
       </header>
 
-      <div class="rooms__grid">
+      <div class="rooms__group">
+        <h3 class="rooms__group-title" data-reveal data-i18n="rooms.groupRooms">Номера</h3>
+        <div class="rooms__grid">
         <article class="room-card" data-reveal data-room="odnomestny">
           <div class="room-card__media">
             <img src="assets/images/rooms/odnomestny/odnomestny-1.png" alt="Одноместный номер" loading="lazy" />
@@ -454,14 +456,19 @@
             </div>
           </div>
         </article>
+        </div>
+      </div>
 
+      <div class="rooms__group">
+        <h3 class="rooms__group-title" data-reveal data-i18n="rooms.groupHouses">Домики</h3>
+        <div class="rooms__grid rooms__grid--houses">
         <article class="room-card" data-reveal data-room="guest_house">
           <div class="room-card__media">
             <img src="assets/images/rooms/guest_house/DSC09005.jpg" alt="Гостевой дом" loading="lazy" />
             <span class="room-card__badge" data-i18n="rooms.guest_house.badge">от 90 000 ₸ / сутки</span>
           </div>
           <div class="room-card__body">
-            <h3 class="room-card__title" data-i18n="rooms.guest_house.title">Гостевой дом</h3>
+            <h3 class="room-card__title" data-i18n="rooms.guest_house.title">Guest House</h3>
             <p class="room-card__desc" data-i18n="rooms.guest_house.short">Домик из сруба среди гор — природа без потери городского комфорта.</p>
             <div class="room-card__foot">
               <span class="room-card__meta" data-i18n="rooms.guest_house.meta">2 гостя (+доп.)</span>
@@ -484,6 +491,7 @@
             </div>
           </div>
         </article>
+        </div>
       </div>
 
       <p class="rooms__note" data-reveal data-i18n="rooms.note">

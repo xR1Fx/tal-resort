@@ -933,6 +933,18 @@ a {
   background-color: #efe9d8;
   padding: clamp(7rem, 17vh, 13rem) 0;
 }
+.rooms__group + .rooms__group {
+  margin-top: clamp(3.5rem, 8vw, 6rem);
+}
+.rooms__group-title {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #14271d;
+  margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(20, 39, 29, 0.12);
+}
 .rooms__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -945,6 +957,14 @@ a {
 }
 @media (max-width: 600px) {
   .rooms__grid {
+    grid-template-columns: 1fr;
+  }
+}
+.rooms__grid--houses {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 600px) {
+  .rooms__grid--houses {
     grid-template-columns: 1fr;
   }
 }

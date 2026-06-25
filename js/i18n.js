@@ -94,6 +94,8 @@
 
       "rooms.eyebrow": "Проживание",
       "rooms.title": "Номера и домики",
+      "rooms.groupRooms": "Номера",
+      "rooms.groupHouses": "Домики",
       "rooms.more": "Подробнее →",
       "rooms.note": "Цены указаны за сутки (будни / выходные). Бронируя номер, вы получаете доступ в банный комплекс, аква-зону и SPA.",
       "rooms.book": "Забронировать",
@@ -141,7 +143,7 @@
       "rooms.semeini.full": "<p>Семейный номер рассчитан на 4 человека: предусмотрены 2 king-size кровати и 1 диван в гостиной.</p><p>Отель позволяет окунуться в атмосферу уединённости и расслабления в тандеме с природой. Бронируя номер, вы также получаете пребывание в банном комплексе, аква-зоне и СПА-центре.</p>",
       "rooms.semeini.amen": "<li>Тёплые полы</li><li>Wi-Fi</li><li>Smart TV</li><li>Завтрак на 4</li><li>2 king-size кровати</li><li>Диван в гостиной</li><li>Доступ в бани, аква-зону и SPA</li>",
 
-      "rooms.guest_house.title": "Гостевой дом",
+      "rooms.guest_house.title": "Guest House",
       "rooms.guest_house.badge": "от 90 000 ₸ / сутки",
       "rooms.guest_house.meta": "2 гостя (+доп.)",
       "rooms.guest_house.short": "Домик из сруба среди гор — природа без потери городского комфорта.",
@@ -313,6 +315,8 @@
 
       "rooms.eyebrow": "Тұру",
       "rooms.title": "Бөлмелер мен үйшіктер",
+      "rooms.groupRooms": "Бөлмелер",
+      "rooms.groupHouses": "Үйшіктер",
       "rooms.more": "Толығырақ →",
       "rooms.note": "Бағалар тәулігіне көрсетілген (жұмыс күндері / демалыс). Бөлме брондай отырып, монша кешеніне, аква аймаққа және SPA-ға кіру мүмкіндігін аласыз.",
       "rooms.book": "Брондау",
@@ -360,7 +364,7 @@
       "rooms.semeini.full": "<p>Отбасылық бөлме 4 адамға арналған: 2 king-size төсек және қонақ бөлмеде 1 диван қарастырылған.</p><p>Қонақ үй табиғатпен үндесіп, оңашалық пен тыныштық атмосферасына енуге мүмкіндік береді. Бөлмені брондай отырып, монша кешеніне, аква аймаққа және СПА-орталыққа кіру мүмкіндігін аласыз.</p>",
       "rooms.semeini.amen": "<li>Жылы едендер</li><li>Wi-Fi</li><li>Smart TV</li><li>Таңғы ас 4 адамға</li><li>2 king-size төсек</li><li>Қонақ бөлмеде диван</li><li>Монша, аква аймақ және SPA-ға кіру</li>",
 
-      "rooms.guest_house.title": "Қонақ үйі",
+      "rooms.guest_house.title": "Guest House",
       "rooms.guest_house.badge": "90 000 ₸-ден / тәулік",
       "rooms.guest_house.meta": "2 қонақ (+қосымша)",
       "rooms.guest_house.short": "Таулар арасындағы бөренеден салынған үйшік — қала жайлылығын жоғалтпай табиғат аясында.",
@@ -532,6 +536,8 @@
 
       "rooms.eyebrow": "Stay",
       "rooms.title": "Rooms & cottages",
+      "rooms.groupRooms": "Rooms",
+      "rooms.groupHouses": "Cottages",
       "rooms.more": "Details →",
       "rooms.note": "Prices are per night (weekday / weekend). Booking a room includes access to the bath complex, aqua zone and SPA.",
       "rooms.book": "Book now",
@@ -579,7 +585,7 @@
       "rooms.semeini.full": "<p>The family room is designed for 4 guests: two king-size beds and one sofa in the living room.</p><p>The hotel lets every guest immerse in seclusion and relaxation in tune with nature. Booking a room also includes a stay in the bath complex, aqua zone and SPA centre.</p>",
       "rooms.semeini.amen": "<li>Heated floors</li><li>Wi-Fi</li><li>Smart TV</li><li>Breakfast for 4</li><li>Two king-size beds</li><li>Sofa in the living room</li><li>Access to baths, aqua zone & SPA</li>",
 
-      "rooms.guest_house.title": "Guest house",
+      "rooms.guest_house.title": "Guest House",
       "rooms.guest_house.badge": "from 90 000 ₸ / night",
       "rooms.guest_house.meta": "2 guests (+extra)",
       "rooms.guest_house.short": "A log cottage among the mountains — nature without losing city comfort.",
