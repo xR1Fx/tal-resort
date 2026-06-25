@@ -6,8 +6,40 @@
   <title>TAL RESORT — Aqua &amp; SPA · отдых в часе от Алматы</title>
   <meta
     name="description"
-    content="Искусство семейного отдыха в часе езды от Алматы. Термальные бассейны 40°, SPA, кедровые бани и домики у гор Талгара."
+    content="Искусство семейного отдыха в часе езды от Алматы. Термальные бассейны 40°, SPA, кедровые бани и домики у гор Талгара. Номера от 45 000 ₸, билет на день от 10 000 ₸."
   />
+  <meta
+    name="keywords"
+    content="Tal Resort, Тал Резорт, база отдыха Талгар, термальные бассейны Алматы, аквазона Алматы, SPA Алматы, бани на дровах, домики Алматинская область, отдых с детьми Алматы"
+  />
+  <meta name="author" content="TAL RESORT — Aqua &amp; SPA" />
+  <link rel="canonical" href="https://talresort.kz/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#14271d" />
+
+  <!-- Гео-метки (локальный бизнес) -->
+  <meta name="geo.region" content="KZ-75" />
+  <meta name="geo.placename" content="Талгарский район, Алматинская область" />
+  <meta name="geo.position" content="43.2986;77.2297" />
+  <meta name="ICBM" content="43.2986, 77.2297" />
+
+  <!-- Open Graph (соцсети, мессенджеры) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TAL RESORT — Aqua &amp; SPA" />
+  <meta property="og:title" content="TAL RESORT — Aqua &amp; SPA · отдых в часе от Алматы" />
+  <meta property="og:description" content="Термальные бассейны 40°, SPA, кедровые бани и уютные домики у гор Талгара — в часе езды от Алматы." />
+  <meta property="og:url" content="https://talresort.kz/" />
+  <meta property="og:image" content="https://talresort.kz/assets/images/hero-cottages.jpg" />
+  <meta property="og:image:alt" content="TAL RESORT — Aqua &amp; SPA" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:locale:alternate" content="kk_KZ" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TAL RESORT — Aqua &amp; SPA · отдых в часе от Алматы" />
+  <meta name="twitter:description" content="Термальные бассейны 40°, SPA, кедровые бани и домики у гор Талгара — в часе от Алматы." />
+  <meta name="twitter:image" content="https://talresort.kz/assets/images/hero-cottages.jpg" />
 
   <!-- Шрифты: Playfair Display (заголовки) + Inter (текст/кнопки) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,6 +51,182 @@
 
   <!-- Стили (скомпилированный из scss/main.scss) -->
   <link rel="stylesheet" href="css/main.css" />
+
+  <!-- ============ Структурированные данные (Schema.org / JSON-LD) ============ -->
+  <!-- Помогает Google понять, что это курорт, его номера, цены, рейтинг и контакты -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Resort",
+        "@id": "https://talresort.kz/#resort",
+        "name": "TAL RESORT — Aqua & SPA",
+        "description": "Аква-курорт в часе езды от Алматы: термальные бассейны 40°, кедровые бани, SPA, ресторан авторской кухни и уютные домики у подножия Талгарских гор.",
+        "url": "https://talresort.kz/",
+        "telephone": "+7 701 100 28 27",
+        "priceRange": "₸₸",
+        "currenciesAccepted": "KZT",
+        "paymentAccepted": "Наличные, банковская карта",
+        "image": [
+          "https://talresort.kz/assets/images/hero-cottages.jpg",
+          "https://talresort.kz/assets/images/aqua-pool.jpg",
+          "https://talresort.kz/assets/images/baths-steam.jpg"
+        ],
+        "logo": "https://talresort.kz/assets/logo.svg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Талгарский район",
+          "addressRegion": "Алматинская область",
+          "addressCountry": "KZ"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.2986,
+          "longitude": 77.2297
+        },
+        "hasMap": "https://2gis.kz/almaty/firm/tal_resort",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "10:00",
+            "closes": "23:00"
+          }
+        ],
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Термальные бассейны 40°", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Аква-зона и водные горки", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "SPA и массаж", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Бани (кедровая, русская парная, соляная)", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Ресторан", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Парковка", "value": true }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "ratingCount": "1200"
+        },
+        "sameAs": [
+          "https://instagram.com/tal_resort",
+          "https://www.tiktok.com/@tal.resort"
+        ],
+        "containsPlace": [
+          {
+            "@type": "HotelRoom",
+            "name": "Одноместный номер",
+            "description": "Уютный номер для одного гостя со всеми удобствами комплекса: тёплые полы, Wi-Fi, Smart TV и доступ в бани, аква-зону и SPA.",
+            "image": "https://talresort.kz/assets/images/rooms/odnomestny/odnomestny-1.png",
+            "occupancy": { "@type": "QuantitativeValue", "maxValue": 1 },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Тёплые полы", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Smart TV", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Завтрак", "value": true }
+            ],
+            "offers": { "@type": "Offer", "price": "45000", "priceCurrency": "KZT", "availability": "https://schema.org/InStock", "url": "https://talresort.kz/#stay" }
+          },
+          {
+            "@type": "HotelRoom",
+            "name": "Стандарт",
+            "description": "Стандартный номер на двоих для уютного загородного отдыха. Бронируя номер, вы получаете доступ в банный комплекс, аква-зону и SPA.",
+            "image": "https://talresort.kz/assets/images/rooms/standart/DSCF0951.jpg",
+            "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Тёплые полы", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Smart TV", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Завтрак на 2", "value": true }
+            ],
+            "offers": { "@type": "Offer", "price": "90000", "priceCurrency": "KZT", "availability": "https://schema.org/InStock", "url": "https://talresort.kz/#stay" }
+          },
+          {
+            "@type": "HotelRoom",
+            "name": "Полулюкс",
+            "description": "Полулюкс на двоих с king-size кроватью и зоной отдыха с диваном. Доступ в банный комплекс, аква-зону и SPA включён.",
+            "image": "https://talresort.kz/assets/images/rooms/lyux/AO5A0898.jpg",
+            "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 },
+            "bed": { "@type": "BedDetails", "typeOfBed": "King", "numberOfBeds": 1 },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "King-size кровать", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Зона отдыха с диваном", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Smart TV", "value": true }
+            ],
+            "offers": { "@type": "Offer", "price": "105000", "priceCurrency": "KZT", "availability": "https://schema.org/InStock", "url": "https://talresort.kz/#stay" }
+          },
+          {
+            "@type": "HotelRoom",
+            "name": "Люкс",
+            "description": "Люкс на двоих: king-size кровать и гостиная с диваном и рабочей зоной. Доступ в банный комплекс, аква-зону и SPA включён.",
+            "image": "https://talresort.kz/assets/images/rooms/lyux/AO5A0851.jpg",
+            "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 },
+            "bed": { "@type": "BedDetails", "typeOfBed": "King", "numberOfBeds": 1 },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "King-size кровать", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Гостиная с диваном и рабочей зоной", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Smart TV", "value": true }
+            ],
+            "offers": { "@type": "Offer", "price": "120000", "priceCurrency": "KZT", "availability": "https://schema.org/InStock", "url": "https://talresort.kz/#stay" }
+          },
+          {
+            "@type": "HotelRoom",
+            "name": "Семейный номер",
+            "description": "Просторный номер для семьи на 4 человека: две king-size кровати и диван в гостиной. Доступ в банный комплекс, аква-зону и SPA включён.",
+            "image": "https://talresort.kz/assets/images/rooms/semeini/AO5A0784.jpg",
+            "occupancy": { "@type": "QuantitativeValue", "maxValue": 4 },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "2 king-size кровати", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Диван в гостиной", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Завтрак на 4", "value": true }
+            ],
+            "offers": { "@type": "Offer", "price": "120000", "priceCurrency": "KZT", "availability": "https://schema.org/InStock", "url": "https://talresort.kz/#stay" }
+          },
+          {
+            "@type": "HotelRoom",
+            "name": "Guest House",
+            "description": "Домик из сруба среди гор Заилийского Алатау на 2 гостей (возможно доп. место). Заказ еды в номер, доступ в аква-зону и SPA. Заезд 14:00, выезд 11:00.",
+            "image": "https://talresort.kz/assets/images/rooms/guest_house/DSC09005.jpg",
+            "occupancy": { "@type": "QuantitativeValue", "maxValue": 3 },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Отдельный домик из сруба", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Заказ еды в номер", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Завтрак на 2", "value": true }
+            ],
+            "offers": { "@type": "Offer", "price": "90000", "priceCurrency": "KZT", "availability": "https://schema.org/InStock", "url": "https://talresort.kz/#stay" }
+          },
+          {
+            "@type": "HotelRoom",
+            "name": "Дом «Celebrity»",
+            "description": "Праздничный дом для торжеств и вечеринок до 16 гостей: джакузи, караоке, банкетное меню и завтрак на террасе. Базовая стоимость — до 8 человек.",
+            "image": "https://talresort.kz/assets/images/rooms/celebrity_house/DSC09099-2.jpg",
+            "occupancy": { "@type": "QuantitativeValue", "maxValue": 16 },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Джакузи", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Караоке", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Банкетное меню", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true }
+            ],
+            "offers": { "@type": "Offer", "price": "200000", "priceCurrency": "KZT", "availability": "https://schema.org/InStock", "url": "https://talresort.kz/#stay" }
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://talresort.kz/#website",
+        "url": "https://talresort.kz/",
+        "name": "TAL RESORT — Aqua & SPA",
+        "inLanguage": ["ru", "kk", "en"],
+        "publisher": { "@id": "https://talresort.kz/#resort" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 

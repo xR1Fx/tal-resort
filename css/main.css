@@ -938,7 +938,7 @@ a {
 }
 @media (max-width: 600px) {
   .rooms__group + .rooms__group {
-    margin-top: 3rem;
+    margin-top: 4.5rem;
   }
 }
 .rooms__group-title {
