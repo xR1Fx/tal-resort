@@ -293,8 +293,8 @@ a {
     will-change: width, height, border-radius;
 
     @include mobile {
-      width: min(23vh, 200px);
-      height: min(41vh, 356px);
+      width: min(62vw, 280px);
+      height: min(50vh, 440px);
       border-radius: 16px;
     }
   }
@@ -453,7 +453,7 @@ a {
 
   @include mobile {
     &__proof {
-      bottom: calc(50% + min(20.5vh, 178px) + 0.8rem);
+      bottom: calc(50% + min(25vh, 220px) + 0.7rem);
       gap: 0.5rem;
       padding: 0.5rem 0.9rem;
       max-width: calc(100vw - 1.6rem);
