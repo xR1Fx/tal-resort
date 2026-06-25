@@ -32,14 +32,18 @@ const hero = document.querySelector("[data-hero]");
 const heroFrame = document.querySelector("[data-hero-frame]");
 
 if (hero && heroFrame && !reduceMotion) {
+  // На телефоне раскрытие — быстрее (короче прокрутка) и плавнее (инерц. scrub)
+  const isMobile = window.matchMedia("(max-width: 600px)").matches;
+  const grow = isMobile ? 0.58 : 0.68; // доля таймлайна на раскрытие окна
+
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: hero,
       start: "top top",
-      end: "+=160%", // длина прокрутки на раскрытие
+      end: isMobile ? "+=110%" : "+=160%", // длина прокрутки на раскрытие
       pin: true,
       pinSpacing: true, // после раскрытия страница спокойно листается дальше
-      scrub: true,
+      scrub: isMobile ? 0.8 : true, // мягкая инерция на телефоне — плавнее
       anticipatePin: 1,
       invalidateOnRefresh: true, // пересчёт целевых размеров при ресайзе
     },
@@ -54,13 +58,13 @@ if (hero && heroFrame && !reduceMotion) {
       height: () => window.innerHeight,
       borderRadius: 0,
       ease: "power2.inOut",
-      duration: 0.68,
+      duration: grow,
     },
     0
   );
 
   // 2) Затемнение поверх видео уходит по мере раскрытия
-  tl.to(".hero__frame-tint", { opacity: 0, ease: "none", duration: 0.68 }, 0);
+  tl.to(".hero__frame-tint", { opacity: 0, ease: "none", duration: grow }, 0);
 
   // 3) Заголовок разлетается: левая часть — влево, правая — вправо, и тает
   tl.to(

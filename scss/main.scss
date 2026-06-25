@@ -318,6 +318,13 @@ a {
       0 0 70px 10px rgba(255, 255, 255, 0.3), // дальний мягкий ореол
       inset 0 0 22px rgba(255, 255, 255, 0.18); // внутренний холодный блик
     will-change: width, height, border-radius;
+
+    // на телефоне окно чуть компактнее — больше воздуха вокруг (пропорции 9:16)
+    @include mobile {
+      width: min(33.8vh, 300px);
+      height: min(60vh, 534px);
+      border-radius: 20px;
+    }
   }
 
   &__video,
