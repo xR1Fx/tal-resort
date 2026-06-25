@@ -1007,8 +1007,10 @@ a {
   position: relative;
   aspect-ratio: 4/3;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.9rem;
   padding: 1.6rem;
   text-align: center;
   overflow: hidden;
@@ -1018,19 +1020,18 @@ a {
 }
 .room-card__media::before {
   content: "";
-  position: absolute;
-  inset: 0;
-  background-color: #a9853f;
-  -webkit-mask: url("../assets/logo.svg") no-repeat center/46%;
-  mask: url("../assets/logo.svg") no-repeat center/46%;
-  opacity: 0.12;
-  pointer-events: none;
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  background: url("../assets/logo.svg") no-repeat center/contain;
+  opacity: 0.85;
+  filter: drop-shadow(0 4px 10px rgba(20, 39, 29, 0.18));
 }
 .room-card__media::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(120% 80% at 50% 0%, rgba(255, 255, 255, 0.5), transparent 62%);
+  background: radial-gradient(120% 80% at 50% 0%, rgba(255, 255, 255, 0.4), transparent 62%);
   pointer-events: none;
 }
 .room-card__name {
