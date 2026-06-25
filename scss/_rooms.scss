@@ -90,6 +90,7 @@
       object-fit: cover;
       transform: scale(1.18);
       filter: blur(12px) saturate(1.15) brightness(0.94);
+      transition: filter 0.55s ease, transform 0.7s ease;
     }
 
     &::before {
@@ -109,6 +110,21 @@
       inset: 0;
       z-index: 1;
       background: linear-gradient(180deg, rgba(18, 40, 28, 0.4), rgba(12, 28, 20, 0.62));
+    }
+
+    @include mobile {
+      aspect-ratio: 16 / 9;
+
+      img {
+        filter: blur(8px) saturate(1.15) brightness(0.96);
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover &__media img {
+      transform: scale(1.08);
+      filter: blur(3px) saturate(1.2) brightness(0.98);
     }
   }
 
@@ -162,28 +178,44 @@
   }
 
   &__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
     font-size: 0.82rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: $color-muted;
+
+    &::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+      background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%235a6157'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M17%2021v-2a4%204%200%200%200-4-4H5a4%204%200%200%200-4%204v2'/%3E%3Ccircle%20cx='9'%20cy='7'%20r='4'/%3E%3Cpath%20d='M23%2021v-2a4%204%200%200%200-3-3.87'/%3E%3Cpath%20d='M16%203.13a4%204%200%200%201%200%207.75'/%3E%3C/svg%3E")
+        no-repeat center / contain;
+    }
   }
 
   &__more {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0;
+    padding: 0.5rem 0.95rem;
     font-family: $font-sans;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: 0.82rem;
+    font-weight: 600;
     color: $color-accent;
-    background: none;
-    border: none;
+    background: rgba(169, 133, 63, 0.1);
+    border: 1px solid rgba(169, 133, 63, 0.32);
+    border-radius: 100px;
     cursor: pointer;
-    transition: gap 0.25s ease, color 0.25s ease;
+    transition: gap 0.25s ease, color 0.25s ease, background-color 0.25s ease,
+      border-color 0.25s ease;
 
     &:hover {
-      color: $color-accent-d;
+      color: $color-light;
+      background: $color-accent;
+      border-color: $color-accent;
     }
   }
 
