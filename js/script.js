@@ -149,8 +149,7 @@ if (!reduceMotion) {
         scrollTrigger: {
           trigger: grid,
           start: "top 80%",
-          once: true,
-          toggleActions: "play none none none",
+          toggleActions: "restart none restart none",
         },
       });
     });
@@ -163,8 +162,7 @@ if (!reduceMotion) {
       scrollTrigger: {
         trigger: el,
         start: "top 85%",
-        once: true,
-        toggleActions: "play none none none",
+        toggleActions: "restart none restart none",
       },
     });
   });
@@ -183,8 +181,7 @@ if (!reduceMotion) {
         scrollTrigger: {
           trigger: fill.closest(".gauge") || fill,
           start: "top 85%",
-          once: true,
-          toggleActions: "play none none none",
+          toggleActions: "restart none restart none",
         },
       }
     );
@@ -198,7 +195,11 @@ if (!reduceMotion) {
 if (!reduceMotion) {
   gsap.utils.toArray("[data-img-reveal]").forEach((wrap) => {
     const img = wrap.querySelector("img");
-    const st = { trigger: wrap, start: "top 82%", once: true };
+    const st = {
+      trigger: wrap,
+      start: "top 82%",
+      toggleActions: "restart none restart none",
+    };
     gsap.fromTo(
       wrap,
       { clipPath: "inset(0% 100% 0% 0%)" },
@@ -220,7 +221,11 @@ if (stackCards.length && !reduceMotion) {
       duration: 0.9,
       ease: "power3.out",
       stagger: 0.1,
-      scrollTrigger: { trigger: card, start: "top 55%", once: true },
+      scrollTrigger: {
+        trigger: card,
+        start: "top 55%",
+        toggleActions: "restart none restart none",
+      },
     });
   });
 }
@@ -267,20 +272,22 @@ gsap.utils.toArray("[data-count]").forEach((el) => {
   const suffix = el.dataset.suffix || "";
   const render = (v) => (el.textContent = Math.round(v).toLocaleString("ru-RU") + suffix);
 
+  const run = () => {
+    if (reduceMotion) return render(target);
+    const obj = { val: 0 };
+    gsap.to(obj, {
+      val: target,
+      duration: 1.6,
+      ease: "power2.out",
+      onUpdate: () => render(obj.val),
+    });
+  };
+
   ScrollTrigger.create({
     trigger: el,
     start: "top 90%",
-    once: true,
-    onEnter: () => {
-      if (reduceMotion) return render(target);
-      const obj = { val: 0 };
-      gsap.to(obj, {
-        val: target,
-        duration: 1.6,
-        ease: "power2.out",
-        onUpdate: () => render(obj.val),
-      });
-    },
+    onEnter: run,
+    onEnterBack: run,
   });
 });
 
