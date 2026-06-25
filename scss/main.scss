@@ -307,8 +307,9 @@ a {
     transform: translate(-50%, -50%);
     z-index: 2;
     // стартовые пропорции 9:16 (как у видео) — изначально без боковых полос
-    width: min(39.4vh, 360px);
-    height: min(70vh, 640px);
+    // ПК/планшет — чуть крупнее окно
+    width: min(42.8vh, 394px);
+    height: min(76vh, 700px);
     border-radius: 24px;
     overflow: hidden;
     box-shadow:

@@ -26,6 +26,37 @@ const reduceMotion = window.matchMedia(
 ).matches;
 
 // ===============================
+//  Автозапуск hero-видео
+//  Мобильные браузеры (особенно iOS) часто блокируют autoplay —
+//  принудительно стартуем muted-видео и повторяем при первом взаимодействии.
+// ===============================
+(function ensureHeroVideoPlays() {
+  const vids = document.querySelectorAll(".hero video");
+  if (!vids.length) return;
+
+  const tryPlay = () => {
+    vids.forEach((v) => {
+      v.muted = true; // обязательное условие для autoplay на мобильных
+      v.defaultMuted = true;
+      v.playsInline = true;
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    });
+  };
+
+  tryPlay();
+  window.addEventListener("load", tryPlay, { once: true });
+  // запасной заход: первый жест пользователя гарантированно разблокирует
+  ["touchstart", "pointerdown", "click", "scroll", "keydown"].forEach((evt) =>
+    window.addEventListener(evt, tryPlay, { once: true, passive: true })
+  );
+  // вернулись на вкладку — продолжаем играть
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) tryPlay();
+  });
+})();
+
+// ===============================
 //  HERO — раскрытие видео-окошка + разлёт заголовка
 // ===============================
 const hero = document.querySelector("[data-hero]");
