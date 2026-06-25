@@ -169,27 +169,6 @@ if (!reduceMotion) {
 }
 
 if (!reduceMotion) {
-  gsap.utils
-    .toArray(".room-card__media img")
-    .forEach((img) => {
-      gsap.fromTo(
-        img,
-        { yPercent: -6 },
-        {
-          yPercent: 6,
-          ease: "none",
-          scrollTrigger: {
-            trigger: img.closest(".room-card"),
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        }
-      );
-    });
-}
-
-if (!reduceMotion) {
   gsap.utils.toArray("[data-gauge]").forEach((fill) => {
     const pct = parseFloat(fill.getAttribute("data-gauge")) || 0;
     gsap.fromTo(
