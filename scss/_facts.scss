@@ -1,6 +1,3 @@
-// ===============================
-//  Аква-технологии — анимированные шкалы (gauges)
-// ===============================
 .facts {
   padding: clamp(5rem, 12vh, 9rem) 0;
   background: $color-ivory;
@@ -58,7 +55,7 @@
   &__fill {
     display: block;
     height: 100%;
-    width: 0; // стартовое; ScrollTrigger расширяет до data-gauge%
+    width: 0;
     border-radius: 100px;
     background: $grad-gold;
     box-shadow: 0 0 16px rgba(201, 169, 110, 0.5);

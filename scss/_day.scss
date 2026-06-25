@@ -1,6 +1,3 @@
-// ===============================
-//  Идеальный день — вертикальный таймлайн
-// ===============================
 .day {
   padding: clamp(5rem, 12vh, 9rem) 0;
   background: $color-cream;
@@ -44,7 +41,6 @@
     padding-left: clamp(1.4rem, 3vw, 2rem);
     border-left: 2px solid rgba(169, 133, 63, 0.32);
 
-    // узел-точка на линии
     &::before {
       content: "";
       position: absolute;
@@ -58,7 +54,6 @@
     }
   }
 
-  // у последнего шага линия не уходит в пустоту
   &__step:last-child &__body {
     border-left-color: transparent;
   }

@@ -1,6 +1,3 @@
-// ===============================
-//  CTA-блок — фото с марин-оверлеем и стеклянной панелью
-// ===============================
 .cta {
   background-color: $color-ivory;
   padding: clamp(5rem, 12vh, 9rem) 0;
@@ -15,10 +12,8 @@
   color: $color-light;
   isolation: isolate;
 
-  // фоновое фото
   background: url("../assets/images/aqua-pool.jpg") center / cover no-repeat;
 
-  // марин-оверлей для контраста
   &::before {
     content: "";
     position: absolute;

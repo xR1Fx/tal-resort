@@ -1,7 +1,3 @@
-// ===============================
-//  Модальное окно номера («Подробнее»)
-//  Слева — галерея, справа — описание, удобства, цена, бронь.
-// ===============================
 .room-modal {
   position: fixed;
   inset: 0;
@@ -60,13 +56,12 @@
     }
   }
 
-  // ---- Галерея ----
   &__gallery {
     position: relative;
     background: $color-dark;
     overflow: hidden;
     min-height: 340px;
-    // вертикальный жест скроллит модалку, горизонтальный — листает (JS)
+
     touch-action: pan-y;
 
     @include tablet {
@@ -150,7 +145,6 @@
     }
   }
 
-  // ---- Контент ----
   &__content {
     padding: clamp(1.6rem, 3vw, 2.6rem);
     overflow-y: auto;
@@ -248,7 +242,6 @@
     width: 100%;
   }
 
-  // ---- Крестик ----
   &__close {
     position: absolute;
     top: 14px;
@@ -288,7 +281,6 @@
   }
 }
 
-// Блокировка прокрутки фона, пока модалка открыта (бэкап к lenis.stop())
 body.is-modal-open {
   overflow: hidden;
 }

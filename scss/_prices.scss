@@ -1,6 +1,3 @@
-// ===============================
-//  Цены — билет на день, тарифные карточки
-// ===============================
 .prices {
   position: relative;
   padding: clamp(7rem, 16vh, 12rem) 0;
@@ -42,7 +39,6 @@
     box-shadow: 0 26px 60px rgba(15, 28, 20, 0.1);
   }
 
-  // выделенный (выходной) тариф — тёмно-зелёный с золотыми акцентами
   &--featured {
     color: $color-light;
     border: none;
@@ -54,7 +50,7 @@
       color: rgba(255, 255, 255, 0.8);
     }
     .price-card__amount {
-      color: $color-gold-light; // сумма золотом
+      color: $color-gold-light;
     }
   }
 

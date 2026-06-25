@@ -1,13 +1,9 @@
-// ===============================
-//  Блок 2 — О концепции (The Experience)
-// ===============================
 .about {
   position: relative;
   overflow: hidden;
   background-color: $color-ivory;
   padding: clamp(7rem, 17vh, 13rem) 0;
 
-  // мягкое аква-свечение для «жизни»
   &::before {
     content: "";
     position: absolute;
@@ -94,7 +90,7 @@
 
     @include tablet {
       aspect-ratio: 16 / 10;
-      order: -1; // на мобильных картинка сверху
+      order: -1;
     }
   }
 }

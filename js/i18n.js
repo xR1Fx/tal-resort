@@ -1,16 +1,7 @@
-/* ============================================================
-   i18n — Tal Resort. Три языка: RU (русский), KK (қазақша), EN.
-   Значения могут содержать HTML (<br>, <small>, <em>, <b>).
-   Применение: элементам ставится data-i18n="ключ"; apply()
-   подставляет перевод через innerHTML. Если ключа нет — остаётся
-   русский (страница никогда не «ломается»). Выбор хранится в
-   localStorage и применяется до отрисовки.
-   ============================================================ */
 (function () {
   "use strict";
 
   const I18N = {
-    // ----------------------------- РУССКИЙ -----------------------------
     ru: {
       "nav.about": "О курорте",
       "nav.aqua": "Аква &amp; SPA",
@@ -231,7 +222,6 @@
       "float.book": "Забронировать отдых"
     },
 
-    // ----------------------------- ҚАЗАҚША -----------------------------
     kk: {
       "nav.about": "Курорт туралы",
       "nav.aqua": "Аква &amp; SPA",
@@ -452,7 +442,6 @@
       "float.book": "Демалысты брондау"
     },
 
-    // ----------------------------- ENGLISH -----------------------------
     en: {
       "nav.about": "About",
       "nav.aqua": "Aqua &amp; SPA",
@@ -697,7 +686,6 @@
       if (val != null) el.innerHTML = val;
     });
 
-    // переводы атрибутов: data-i18n-attr="aria-label:some.key|title:other.key"
     document.querySelectorAll("[data-i18n-attr]").forEach(function (el) {
       el.getAttribute("data-i18n-attr").split("|").forEach(function (pair) {
         const parts = pair.split(":");
@@ -716,7 +704,7 @@
     });
 
     localStorage.setItem(STORAGE_KEY, lang);
-    // событие — чтобы анимации (шкалы и т.п.) могли отреагировать при желании
+
     document.dispatchEvent(new CustomEvent("langchange", { detail: { lang: lang } }));
   }
 
@@ -735,6 +723,5 @@
     init();
   }
 
-  // на случай внешнего доступа
   window.TalI18n = { apply: apply };
 })();

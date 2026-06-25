@@ -68,11 +68,6 @@ a {
   color: #14271d;
 }
 
-.word {
-  display: inline-block;
-  will-change: transform, opacity;
-}
-
 [data-img-reveal] {
   overflow: hidden;
 }

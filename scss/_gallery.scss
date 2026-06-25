@@ -1,6 +1,3 @@
-// ===============================
-//  Блок 5 — Галерея / Атмосфера
-// ===============================
 .gallery {
   background-color: $color-cream;
   padding: clamp(7rem, 17vh, 13rem) 0;
@@ -31,12 +28,11 @@
       position: absolute;
       inset: -12% 0 auto 0;
       width: 100%;
-      height: 124%; // запас под параллакс по глубине (двигает GSAP)
+      height: 124%;
       object-fit: cover;
       will-change: transform;
     }
 
-    // Крупные плитки для разнообразия раскладки
     &--tall {
       grid-row: span 2;
 

@@ -17,13 +17,11 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="theme-color" content="#14271d" />
 
-  <!-- Гео-метки (локальный бизнес) -->
   <meta name="geo.region" content="KZ-75" />
   <meta name="geo.placename" content="Талгарский район, Алматинская область" />
   <meta name="geo.position" content="43.2986;77.2297" />
   <meta name="ICBM" content="43.2986, 77.2297" />
 
-  <!-- Open Graph (соцсети, мессенджеры) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TAL RESORT — Aqua &amp; SPA" />
   <meta property="og:title" content="TAL RESORT — Aqua &amp; SPA · отдых в часе от Алматы" />
@@ -35,13 +33,11 @@
   <meta property="og:locale:alternate" content="kk_KZ" />
   <meta property="og:locale:alternate" content="en_US" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TAL RESORT — Aqua &amp; SPA · отдых в часе от Алматы" />
   <meta name="twitter:description" content="Термальные бассейны 40°, SPA, кедровые бани и домики у гор Талгара — в часе от Алматы." />
   <meta name="twitter:image" content="https://talresort.kz/assets/images/hero-cottages.jpg" />
 
-  <!-- Шрифты: Playfair Display (заголовки) + Inter (текст/кнопки) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -49,11 +45,8 @@
     rel="stylesheet"
   />
 
-  <!-- Стили (скомпилированный из scss/main.scss) -->
   <link rel="stylesheet" href="css/main.css" />
 
-  <!-- ============ Структурированные данные (Schema.org / JSON-LD) ============ -->
-  <!-- Помогает Google понять, что это курорт, его номера, цены, рейтинг и контакты -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -230,7 +223,6 @@
 </head>
 <body>
 
-  <!-- ============ Навигация (стеклянная) ============ -->
   <header class="nav" data-nav>
     <a class="nav__logo" href="#top" aria-label="Tal Resort — на главную">
       <img src="assets/logo.svg" alt="" />
@@ -245,7 +237,6 @@
       <a href="#location" data-nav-link data-i18n="nav.contacts">Контакты</a>
     </nav>
 
-    <!-- Переключатель языка (ПК) -->
     <div class="lang" role="group" aria-label="Язык сайта">
       <button class="lang__btn" type="button" data-lang="ru" aria-pressed="true">RU</button>
       <button class="lang__btn" type="button" data-lang="kk" aria-pressed="false">KZ</button>
@@ -258,7 +249,6 @@
     </button>
   </header>
 
-  <!-- Мобильное стеклянное меню -->
   <div class="nav-menu" data-nav-menu>
     <a href="#experience" data-nav-link data-i18n="nav.about">О курорте</a>
     <a href="#aqua" data-nav-link data-i18n="nav.aqua">Аква &amp; SPA</a>
@@ -267,7 +257,6 @@
     <a href="#restaurant" data-nav-link data-i18n="nav.restaurant">Ресторан</a>
     <a href="#location" data-nav-link data-i18n="nav.contacts">Контакты</a>
 
-    <!-- Переключатель языка (мобильное меню) -->
     <div class="lang lang--menu" role="group" aria-label="Язык сайта">
       <button class="lang__btn" type="button" data-lang="ru" aria-pressed="true">RU</button>
       <button class="lang__btn" type="button" data-lang="kk" aria-pressed="false">KZ</button>
@@ -277,9 +266,8 @@
     <a class="btn btn--primary" href="#booking" data-nav-link data-i18n="nav.bookFull">Забронировать отдых</a>
   </div>
 
-  <!-- ============ HERO (раскрытие видео при скролле) ============ -->
   <section class="hero" data-hero id="top">
-    <!-- Видео-фон за центральным окном (вместо фото домиков) -->
+    
     <div class="hero__bg">
       <video
         class="hero__bg-video"
@@ -296,9 +284,8 @@
       </video>
     </div>
 
-    <!-- Центральное видео-окно (9:16): изначально без блюра, при раскрытии — блюр по бокам -->
     <div class="hero__frame" data-hero-frame>
-      <!-- Размытый слой: проявляется по бокам, когда окно расширяется -->
+      
       <video
         class="hero__video-bg"
         autoplay
@@ -309,7 +296,7 @@
       >
         <source src="assets/hero.mp4" type="video/mp4" />
       </video>
-      <!-- Вертикальное видео по центру -->
+      
       <video
         class="hero__video"
         autoplay
@@ -325,7 +312,6 @@
       <div class="hero__frame-tint"></div>
     </div>
 
-    <!-- Заголовок поверх окошка: части разлетаются в стороны -->
     <div class="hero__content">
       <h1 class="hero__title">
         <span class="hero__word" data-hero-left data-i18n="hero.titleLeft">Искусство</span>
@@ -333,14 +319,12 @@
       </h1>
     </div>
 
-    <!-- Соц-доказательство (стеклянный pill) -->
     <div class="hero__proof" data-hero-proof>
       <span class="hero__proof-stars" aria-hidden="true">★★★★★</span>
       <span class="hero__proof-divider"></span>
       <span class="hero__proof-text" data-i18n="hero.proof"><b>4.9</b> · более 1200 счастливых гостей</span>
     </div>
 
-    <!-- Боковой текст (только ПК ≥1024px) — проявляется во время раскрытия -->
     <div class="hero__side hero__side--left" data-hero-side-left aria-hidden="true">
       <span class="hero__side-title" data-i18n="hero.sideTitle">Перезагрузка</span>
     </div>
@@ -351,7 +335,6 @@
     </div>
   </section>
 
-  <!-- ============ БЛОК 2: О КУРОРТЕ ============ -->
   <section class="about section" id="experience">
     <div class="container about__inner">
       <div class="about__text">
@@ -396,7 +379,6 @@
     </div>
   </section>
 
-  <!-- ============ Бегущая строка ============ -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track" data-marquee>
       <span class="marquee__item" data-i18n="marquee.1">Термальная вода 40°</span><span class="marquee__dot">●</span>
@@ -404,7 +386,7 @@
       <span class="marquee__item" data-i18n="marquee.3">Авторская кухня</span><span class="marquee__dot">●</span>
       <span class="marquee__item" data-i18n="marquee.4">Горный воздух</span><span class="marquee__dot">●</span>
       <span class="marquee__item" data-i18n="marquee.5">1 час от Алматы</span><span class="marquee__dot">●</span>
-      <!-- дубль для бесшовного цикла -->
+      
       <span class="marquee__item" data-i18n="marquee.1">Термальная вода 40°</span><span class="marquee__dot">●</span>
       <span class="marquee__item" data-i18n="marquee.2">Кедровые бани</span><span class="marquee__dot">●</span>
       <span class="marquee__item" data-i18n="marquee.3">Авторская кухня</span><span class="marquee__dot">●</span>
@@ -413,9 +395,8 @@
     </div>
   </div>
 
-  <!-- ============ ВПЕЧАТЛЕНИЯ — липкие полноэкранные карточки ============ -->
   <section class="stack" data-stack>
-    <!-- 01 · Аква-зона -->
+    
     <article class="stack__card" id="aqua">
       <div class="stack__media">
         <img src="assets/images/aqua-pool.jpg" alt="Аква-зона и термальные бассейны" loading="lazy" />
@@ -437,7 +418,6 @@
       </div>
     </article>
 
-    <!-- 02 · Бани -->
     <article class="stack__card" id="baths">
       <div class="stack__media">
         <img src="assets/images/baths-steam.jpg" alt="Бани на дровах" loading="lazy" />
@@ -459,7 +439,6 @@
       </div>
     </article>
 
-    <!-- 03 · Ресторан -->
     <article class="stack__card" id="restaurant">
       <div class="stack__media">
         <img src="assets/images/restaurant-hall.jpg" alt="Ресторан авторской кухни" loading="lazy" />
@@ -482,7 +461,6 @@
     </article>
   </section>
 
-  <!-- ============ АКВА-ТЕХНОЛОГИИ — анимированные шкалы ============ -->
   <section class="facts section" id="facts">
     <div class="container">
       <header class="section-head">
@@ -527,7 +505,6 @@
     </div>
   </section>
 
-  <!-- ============ ИДЕАЛЬНЫЙ ДЕНЬ — таймлайн ============ -->
   <section class="day section" id="day">
     <div class="container">
       <header class="section-head">
@@ -579,7 +556,6 @@
     </div>
   </section>
 
-  <!-- ============ БЛОК 3: ПРОЖИВАНИЕ ============ -->
   <section class="rooms section" id="stay">
     <div class="container">
       <header class="section-head">
@@ -708,7 +684,6 @@
     </div>
   </section>
 
-  <!-- ============ МЕНЮ РЕСТОРАНА ============ -->
   <section class="restaurant section" id="menu">
     <div class="container">
       <header class="section-head">
@@ -750,7 +725,6 @@
     </div>
   </section>
 
-  <!-- ============ ЦЕНЫ / БИЛЕТ НА ДЕНЬ ============ -->
   <section class="prices section" id="prices">
     <div class="container">
       <header class="section-head">
@@ -791,7 +765,6 @@
     </div>
   </section>
 
-  <!-- ============ БЛОК 5: ГАЛЕРЕЯ / АТМОСФЕРА ============ -->
   <section class="gallery section" id="gallery">
     <div class="container">
       <header class="section-head">
@@ -819,7 +792,6 @@
     </div>
   </section>
 
-  <!-- ============ Отзывы (social proof) ============ -->
   <section class="testimonials section" id="reviews">
     <div class="container">
       <header class="section-head">
@@ -867,7 +839,6 @@
     </div>
   </section>
 
-  <!-- ============ КАК ДОБРАТЬСЯ ============ -->
   <section class="location section" id="location">
     <div class="container">
       <header class="section-head">
@@ -911,7 +882,6 @@
     </div>
   </section>
 
-  <!-- ============ CTA ============ -->
   <section class="cta">
     <div class="container">
       <div class="cta__panel" data-reveal>
@@ -931,7 +901,6 @@
     </div>
   </section>
 
-  <!-- ============ БЛОК 6: ФУТЕР И КОНТАКТЫ ============ -->
   <footer class="footer section" id="booking">
     <div class="container footer__inner">
       <div class="footer__brand">
@@ -982,7 +951,6 @@
     </div>
   </footer>
 
-  <!-- ============ Плавающая премиум-кнопка бронирования ============ -->
   <a
     href="https://wa.me/77011002827"
     class="float-book"
@@ -999,8 +967,6 @@
     </span>
   </a>
 
-  <!-- ============ Библиотеки (CDN) ============ -->
-  <!-- ============ Модальное окно номера («Подробнее») ============ -->
   <div class="room-modal" data-room-modal hidden role="dialog" aria-modal="true" aria-labelledby="roomModalTitle">
     <div class="room-modal__overlay" data-room-close></div>
     <div class="room-modal__dialog" role="document" data-lenis-prevent>
@@ -1031,10 +997,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 
-  <!-- Языки (RU/KZ/EN) -->
   <script src="js/i18n.js"></script>
   <script src="js/rooms-data.js"></script>
-  <!-- Наш скрипт -->
+  
   <script src="js/script.js"></script>
 
 </body>

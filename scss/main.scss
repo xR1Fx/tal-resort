@@ -1,29 +1,16 @@
-// ===============================
-//  Tal Resort — главный SCSS файл
-//  Партиалы блоков подключены через @import внизу.
-// ===============================
+$color-dark: #14271d;
+$color-dark-2: #1c3327;
+$color-ivory: #f7f3e9;
+$color-light: #ffffff;
+$color-cream: #efe9d8;
+$color-muted: #5a6157;
+$color-line: rgba(20, 39, 29, 0.12);
+$color-accent: #a9853f;
+$color-accent-d: #8a6a31;
+$color-accent-2: #c9a96e;
+$color-gold-light: #e8cd92;
+$color-sand: #c9a96e;
 
-// ===============================
-//  Дизайн-система (скилл: ui-ux-pro-max)
-//  Стиль: Light Luxury / тёплое стекло
-//  Палитра: белый + тёмно-зелёный лес + золото
-// ===============================
-
-// -------- Палитра --------
-$color-dark: #14271d; // глубокий лесной зелёный — текст и тёмные секции
-$color-dark-2: #1c3327; // чуть светлее зелёный — вариация секций
-$color-ivory: #f7f3e9; // тёплый кремовый — основной фон
-$color-light: #ffffff; // белый (карточки)
-$color-cream: #efe9d8; // тёплый фон чередующихся секций
-$color-muted: #5a6157; // приглушённый зелёно-серый текст
-$color-line: rgba(20, 39, 29, 0.12); // тонкие линии/рамки
-$color-accent: #a9853f; // глубокое золото — читается на белом (eyebrow, ссылки)
-$color-accent-d: #8a6a31; // тёмное золото (hover)
-$color-accent-2: #c9a96e; // брендовое золото — градиенты/свечение
-$color-gold-light: #e8cd92; // светлое золото — верх градиента/блик
-$color-sand: #c9a96e; // тёплое золото — деликатный люкс-штрих
-
-// золотой градиент для кнопок/акцентов
 $grad-gold: linear-gradient(135deg, #f0d9a4 0%, #e8cd92 22%, #c9a96e 55%, #a78850 100%);
 
 $font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -31,15 +18,13 @@ $font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
 $container: 1240px;
 
-// -------- Стекло (Glassmorphism) --------
 $glass-blur: 16px;
-$glass-light: rgba(255, 255, 255, 0.14); // поверх фото/тёмного
+$glass-light: rgba(255, 255, 255, 0.14);
 $glass-light-2: rgba(255, 255, 255, 0.22);
-$glass-on-light: rgba(255, 255, 255, 0.62); // матовая карточка на светлом фоне
+$glass-on-light: rgba(255, 255, 255, 0.62);
 $glass-border: rgba(255, 255, 255, 0.3);
 $glass-shadow: 0 18px 50px rgba(8, 30, 38, 0.18);
 
-// Матовое стекло поверх изображений/тёмного (белый текст)
 @mixin glass($bg: $glass-light, $blur: $glass-blur) {
   background: $bg;
   backdrop-filter: blur($blur) saturate(165%);
@@ -48,7 +33,6 @@ $glass-shadow: 0 18px 50px rgba(8, 30, 38, 0.18);
   box-shadow: $glass-shadow;
 }
 
-// Матовая карточка на светлом фоне (тёмный текст)
 @mixin glass-card($blur: 12px) {
   background: $glass-on-light;
   backdrop-filter: blur($blur) saturate(140%);
@@ -57,7 +41,6 @@ $glass-shadow: 0 18px 50px rgba(8, 30, 38, 0.18);
   box-shadow: 0 14px 40px rgba(8, 30, 38, 0.08);
 }
 
-// -------- Миксины брейкпоинтов --------
 @mixin tablet {
   @media (max-width: 900px) {
     @content;
@@ -69,7 +52,6 @@ $glass-shadow: 0 18px 50px rgba(8, 30, 38, 0.18);
   }
 }
 
-// -------- Сброс / база --------
 * {
   margin: 0;
   padding: 0;
@@ -77,8 +59,8 @@ $glass-shadow: 0 18px 50px rgba(8, 30, 38, 0.18);
 }
 
 html {
-  scroll-behavior: auto; // скроллом управляет Lenis
-  -webkit-text-size-adjust: 100%; // стабильность шрифтов в iOS Safari
+  scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -88,7 +70,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  // clip (а не hidden) — не создаёт скролл-контейнер, не ломает position: sticky
+
   overflow-x: clip;
 }
 
@@ -102,7 +84,6 @@ a {
   color: inherit;
 }
 
-// -------- Общие утилиты --------
 .container {
   width: min(#{$container}, 100% - 3rem);
   margin-inline: auto;
@@ -141,13 +122,6 @@ a {
   color: $color-dark;
 }
 
-// -------- Пословная анимация текста --------
-.word {
-  display: inline-block;
-  will-change: transform, opacity;
-}
-
-// -------- Картинки с clip-path раскрытием («шторка») --------
 [data-img-reveal] {
   overflow: hidden;
 
@@ -156,7 +130,6 @@ a {
   }
 }
 
-// -------- Кнопки --------
 .btn {
   --pad-y: 0.95rem;
   --pad-x: 2.2rem;
@@ -186,10 +159,9 @@ a {
     outline-offset: 3px;
   }
 
-  // основная — золотая заливка с тёмно-зелёным текстом
   &--primary {
     position: relative;
-    overflow: hidden; // клипуем бегущий блик по форме pill
+    overflow: hidden;
     color: $color-dark;
     font-weight: 600;
     background: $grad-gold;
@@ -199,7 +171,6 @@ a {
       box-shadow: 0 18px 40px rgba(169, 133, 63, 0.5);
     }
 
-    // бегущий золотой блик (периодически + сразу при наведении)
     &::after {
       content: "";
       position: absolute;
@@ -221,7 +192,6 @@ a {
     }
   }
 
-  // стеклянная — поверх фото/тёмного
   &--glass {
     color: $color-light;
     @include glass($glass-light-2, 12px);
@@ -231,7 +201,6 @@ a {
     }
   }
 
-  // контур
   &--ghost {
     color: $color-accent;
     border-color: rgba(169, 133, 63, 0.45);
@@ -245,36 +214,31 @@ a {
   }
 }
 
-// бегущий блик по кнопке
 @keyframes btn-glint {
   0% {
     transform: translateX(-130%);
   }
-  // блик пробегает быстро, затем длинная пауза до следующего цикла
+
   18%,
   100% {
     transform: translateX(130%);
   }
 }
 
-// ===============================
-//  HERO
-// ===============================
 .hero {
   position: relative;
   width: 100%;
   height: 100dvh;
-  min-height: 100vh; // запасной вариант для старых iOS
+  min-height: 100vh;
   overflow: hidden;
   background-color: $color-dark;
 
-  // ---- Фон по бокам от окошка ----
   &__bg {
     position: absolute;
     inset: 0;
     z-index: 1;
     overflow: hidden;
-    background-color: $color-dark; // фолбэк, пока грузится видео
+    background-color: $color-dark;
 
     .hero__bg-video {
       position: absolute;
@@ -284,7 +248,6 @@ a {
       object-fit: cover;
     }
 
-    // марин-градиент поверх видео-фона, чтобы центральное окошко выделялось
     &::after {
       content: "";
       position: absolute;
@@ -299,29 +262,25 @@ a {
     }
   }
 
-  // ---- Центральное видео-окошко (раскрывается на весь экран) ----
   &__frame {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    // стартовые пропорции 9:16 (как у видео) — изначально без боковых полос
-    // ПК/планшет — чуть крупнее окно
+
     width: min(42.8vh, 394px);
     height: min(76vh, 700px);
     border-radius: 24px;
     overflow: hidden;
     box-shadow:
-      0 30px 80px rgba(0, 0, 0, 0.45), // мягкая тень в глубину
-      0 0 0 1.5px rgba(255, 255, 255, 0.85), // чёткое белое кольцо по краю
-      0 0 24px 3px rgba(255, 255, 255, 0.55), // ближнее яркое свечение
-      0 0 70px 10px rgba(255, 255, 255, 0.3), // дальний мягкий ореол
-      inset 0 0 22px rgba(255, 255, 255, 0.18); // внутренний холодный блик
+      0 30px 80px rgba(0, 0, 0, 0.45),
+      0 0 0 1.5px rgba(255, 255, 255, 0.85),
+      0 0 24px 3px rgba(255, 255, 255, 0.55),
+      0 0 70px 10px rgba(255, 255, 255, 0.3),
+      inset 0 0 22px rgba(255, 255, 255, 0.18);
     will-change: width, height, border-radius;
 
-    // на телефоне — маленькое стартовое окно (пропорции 9:16),
-    // которое затем эффектно раскрывается на весь экран
     @include mobile {
       width: min(23vh, 200px);
       height: min(41vh, 356px);
@@ -337,7 +296,6 @@ a {
     height: 100%;
   }
 
-  // размытый слой — невидим, пока рамка 9:16; проявляется по бокам при расширении
   &__video-bg {
     z-index: 0;
     object-fit: cover;
@@ -345,13 +303,11 @@ a {
     filter: blur(28px) saturate(135%) brightness(0.72);
   }
 
-  // вертикальное видео целиком (в стартовой рамке 9:16 заполняет без полос)
   &__video {
     z-index: 1;
     object-fit: contain;
   }
 
-  // на вертикальных экранах (телефоны) — видео заполняет рамку, блюр не нужен
   @media (max-aspect-ratio: 1 / 1) {
     &__video-bg {
       display: none;
@@ -361,7 +317,6 @@ a {
     }
   }
 
-  // затемнение поверх видео — чтобы заголовок читался; уходит при раскрытии
   &__frame-tint {
     position: absolute;
     inset: 0;
@@ -370,7 +325,6 @@ a {
     pointer-events: none;
   }
 
-  // ---- Заголовок поверх окошка ----
   &__content {
     position: absolute;
     inset: 0;
@@ -397,14 +351,11 @@ a {
     letter-spacing: 0.01em;
     will-change: transform, opacity;
 
-    // на телефоне шрифт масштабируется по ширине экрана — текст
-    // центрирован по экрану и не выходит за края даже на узких устройствах
     @include mobile {
       font-size: clamp(1.7rem, 7.4vw, 2.7rem);
     }
   }
 
-  // ---- Стеклянный pill соц-доказательства (внизу) ----
   &__proof {
     position: absolute;
     left: 50%;
@@ -442,22 +393,19 @@ a {
     background: rgba(255, 255, 255, 0.35);
   }
 
-  // ---- Боковой текст на размытых панелях (ПК) ----
   &__side {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 4; // поверх размытых панелей видео-окна
-    display: none; // включается только на ПК (≥1024px)
-    opacity: 0; // стартовое состояние (проявляет GSAP до 0.98)
+    z-index: 4;
+    display: none;
+    opacity: 0;
     pointer-events: none;
     font-family: $font-sans;
-    color: #ffffff; // чистый белый — не тускнеет на фоне
-    // мягкая тень — буквы чётко отделяются от динамичного размытого видео
+    color: #ffffff;
+
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 
-    // показываем только на достаточно широких ПК-экранах,
-    // где по бокам от вертикального видео есть свободные панели
     @media (min-width: 1024px) and (min-aspect-ratio: 13 / 10) {
       display: block;
     }
@@ -465,7 +413,7 @@ a {
 
   &__side--left {
     left: clamp(2.5rem, 4vw, 5.5rem);
-    max-width: 24vw; // запас, чтобы крупный заголовок не наезжал на видео
+    max-width: 24vw;
     text-align: left;
   }
 
@@ -477,8 +425,8 @@ a {
 
   &__side-title {
     display: block;
-    font-weight: 700; // плотный
-    // целевые ~3.5rem (56px); чуть уменьшается на узких ПК, чтобы не наезжать
+    font-weight: 700;
+
     font-size: clamp(2.5rem, 3.6vw, 3.5rem);
     line-height: 1.05;
     letter-spacing: 0.01em;
@@ -486,12 +434,11 @@ a {
 
   &__side-text {
     font-weight: 500;
-    // целевые ~1.5rem (24px)
+
     font-size: clamp(1.25rem, 1.7vw, 1.5rem);
     line-height: 1.55;
   }
 
-  // ---- Мобильная версия ----
   @include mobile {
     &__proof {
       gap: 0.6rem;
@@ -501,7 +448,7 @@ a {
       font-size: 0.76rem;
     }
     &__frame {
-      border-radius: 18px; // пропорции 9:16 наследуются от базовых
+      border-radius: 18px;
     }
 
     &__word {
@@ -510,9 +457,6 @@ a {
   }
 }
 
-// ===============================
-//  Партиалы блоков
-// ===============================
 @import "nav";
 @import "lang";
 @import "about";

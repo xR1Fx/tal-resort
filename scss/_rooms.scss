@@ -1,11 +1,7 @@
-// ===============================
-//  Блок 3 — Варианты проживания (Cottages/Rooms)
-// ===============================
 .rooms {
   background-color: $color-cream;
   padding: clamp(7rem, 17vh, 13rem) 0;
 
-  // расстояние между группами «Номера» и «Домики»
   &__group + &__group {
     margin-top: clamp(3.5rem, 8vw, 6rem);
 
@@ -23,7 +19,6 @@
     padding-bottom: 0.9rem;
     border-bottom: 1px solid $color-line;
 
-    // на телефоне заголовок прижимаем к его карточкам (не «висит» высоко)
     @include mobile {
       margin-bottom: 1.1rem;
       padding-bottom: 0.65rem;
@@ -42,7 +37,6 @@
       grid-template-columns: 1fr;
     }
 
-    // домики — крупнее, в две колонки
     &--houses {
       grid-template-columns: repeat(2, 1fr);
 
@@ -72,7 +66,6 @@
     aspect-ratio: 4 / 3;
     overflow: hidden;
 
-    // Картинка выше рамки — место для параллакса (двигает её GSAP)
     img {
       position: absolute;
       inset: -10% 0 auto 0;
@@ -88,7 +81,6 @@
     filter: brightness(1.04);
   }
 
-  // стеклянный ценник поверх фото
   &__badge {
     position: absolute;
     top: 1rem;

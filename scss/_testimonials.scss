@@ -1,6 +1,3 @@
-// ===============================
-//  Отзывы — social proof на тёмно-зелёном градиенте со стеклом
-// ===============================
 .testimonials {
   position: relative;
   padding: clamp(7rem, 16vh, 12rem) 0;
@@ -8,7 +5,6 @@
   color: $color-light;
   overflow: hidden;
 
-  // декоративные «водяные» блобы
   &::before,
   &::after {
     content: "";
