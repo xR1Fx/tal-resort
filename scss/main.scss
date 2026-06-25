@@ -212,6 +212,17 @@ a {
       border-color: $color-accent;
     }
   }
+
+  &--forest {
+    color: $color-ivory;
+    font-weight: 600;
+    background: linear-gradient(155deg, $color-dark-2, $color-dark);
+    box-shadow: 0 12px 30px rgba(20, 39, 29, 0.35);
+
+    &:hover {
+      box-shadow: 0 18px 40px rgba(20, 39, 29, 0.5);
+    }
+  }
 }
 
 @keyframes btn-glint {

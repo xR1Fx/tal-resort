@@ -147,6 +147,15 @@ a {
   color: #ffffff;
   border-color: #a9853f;
 }
+.btn--forest {
+  color: #f7f3e9;
+  font-weight: 600;
+  background: linear-gradient(155deg, #1c3327, #14271d);
+  box-shadow: 0 12px 30px rgba(20, 39, 29, 0.35);
+}
+.btn--forest:hover {
+  box-shadow: 0 18px 40px rgba(20, 39, 29, 0.5);
+}
 
 @keyframes btn-glint {
   0% {
