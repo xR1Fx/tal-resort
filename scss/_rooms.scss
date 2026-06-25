@@ -154,8 +154,15 @@
 }
 
 .rooms__note {
-  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+  width: fit-content;
+  max-width: min(760px, 100%);
+  margin: clamp(2.6rem, 5vw, 3.6rem) auto 0;
+  padding: 0.85rem 1.6rem;
   text-align: center;
   color: $color-muted;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid $color-line;
+  border-radius: 14px;
 }
