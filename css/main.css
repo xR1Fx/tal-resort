@@ -46,7 +46,7 @@ a {
 
 .section-head {
   text-align: center;
-  margin-bottom: clamp(3rem, 7vw, 5.5rem);
+  margin-bottom: clamp(2.2rem, 5vw, 3.6rem);
 }
 
 .eyebrow {
@@ -594,7 +594,7 @@ a {
   position: relative;
   overflow: hidden;
   background-color: #f7f3e9;
-  padding: clamp(7rem, 17vh, 13rem) 0;
+  padding: clamp(3.5rem, 8vh, 5.5rem) 0;
 }
 .about::before {
   content: "";
@@ -809,7 +809,7 @@ a {
   }
 }
 .facts {
-  padding: clamp(5rem, 12vh, 9rem) 0;
+  padding: clamp(3rem, 7vh, 5rem) 0;
   background: #f7f3e9;
 }
 .facts__lead {
@@ -866,7 +866,7 @@ a {
 }
 
 .day {
-  padding: clamp(5rem, 12vh, 9rem) 0 clamp(3.5rem, 8vh, 5.5rem);
+  padding: clamp(3rem, 7vh, 5rem) 0 clamp(2.2rem, 5vh, 3.5rem);
   background: #efe9d8;
 }
 .day__lead {
@@ -937,7 +937,7 @@ a {
 
 .rooms {
   background-color: #efe9d8;
-  padding: clamp(3.5rem, 8vh, 5.5rem) 0 clamp(7rem, 17vh, 11rem);
+  padding: clamp(2.2rem, 5vh, 3.5rem) 0 clamp(3rem, 7vh, 5rem);
 }
 .rooms__group + .rooms__group {
   margin-top: clamp(3.5rem, 8vw, 6rem);
@@ -1434,7 +1434,7 @@ body.is-modal-open {
 
 .prices {
   position: relative;
-  padding: clamp(7rem, 16vh, 12rem) 0;
+  padding: clamp(3rem, 7vh, 5rem) 0;
   background: #efe9d8;
 }
 .prices__grid {
@@ -1533,7 +1533,7 @@ body.is-modal-open {
 
 .gallery {
   background-color: #efe9d8;
-  padding: clamp(7rem, 17vh, 13rem) 0;
+  padding: clamp(3rem, 7vh, 5rem) 0;
 }
 .gallery__video {
   position: relative;
@@ -1571,7 +1571,7 @@ body.is-modal-open {
 
 .testimonials {
   position: relative;
-  padding: clamp(7rem, 16vh, 12rem) 0;
+  padding: clamp(3rem, 7vh, 5rem) 0;
   background: linear-gradient(150deg, #14271d 0%, #1c3327 55%, #24412f 100%);
   color: #ffffff;
   overflow: hidden;
@@ -1659,7 +1659,7 @@ body.is-modal-open {
 
 .location {
   position: relative;
-  padding: clamp(7rem, 16vh, 12rem) 0;
+  padding: clamp(3rem, 7vh, 5rem) 0;
   background: #f7f3e9;
 }
 .location__inner {
@@ -1730,7 +1730,7 @@ body.is-modal-open {
 
 .cta {
   background-color: #f7f3e9;
-  padding: clamp(5rem, 12vh, 9rem) 0;
+  padding: clamp(3rem, 7vh, 5rem) 0;
 }
 
 .cta__panel {
