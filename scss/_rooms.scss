@@ -71,15 +71,10 @@
     position: relative;
     aspect-ratio: 4 / 3;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.9rem;
-    padding: 1.6rem;
-    text-align: center;
+    align-items: flex-end;
+    padding: 1.3rem;
     overflow: hidden;
     background-color: $color-dark;
-    box-shadow: inset 0 0 0 1px rgba(169, 133, 63, 0.28);
     border-bottom: 1px solid rgba(20, 39, 29, 0.1);
 
     img {
@@ -88,20 +83,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scale(1.18);
-      filter: blur(12px) saturate(1.15) brightness(0.94);
-      transition: filter 0.55s ease, transform 0.7s ease;
-    }
-
-    &::before {
-      content: "";
-      position: relative;
-      z-index: 2;
-      flex: 0 0 auto;
-      width: 56px;
-      height: 56px;
-      background: url("../assets/logo.svg") no-repeat center / contain;
-      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45));
+      transition: transform 0.7s ease;
     }
 
     &::after {
@@ -109,22 +91,21 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(180deg, rgba(18, 40, 28, 0.4), rgba(12, 28, 20, 0.62));
+      background: linear-gradient(
+        180deg,
+        rgba(10, 22, 16, 0) 42%,
+        rgba(10, 22, 16, 0.74) 100%
+      );
     }
 
     @include mobile {
       aspect-ratio: 16 / 9;
-
-      img {
-        filter: blur(8px) saturate(1.15) brightness(0.96);
-      }
     }
   }
 
   @media (hover: hover) {
     &:hover &__media img {
-      transform: scale(1.08);
-      filter: blur(3px) saturate(1.2) brightness(0.98);
+      transform: scale(1.05);
     }
   }
 
@@ -136,8 +117,9 @@
     font-size: clamp(1.5rem, 2.4vw, 2rem);
     letter-spacing: 0.01em;
     line-height: 1.15;
+    text-align: left;
     color: $color-ivory;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
   }
 
   &__badge {
@@ -145,12 +127,15 @@
     top: 1rem;
     left: 1rem;
     z-index: 3;
-    padding: 0.5rem 0.9rem;
+    padding: 0.5rem 0.95rem;
     border-radius: 100px;
     font-size: 0.85rem;
-    font-weight: 500;
-    color: $color-light;
-    @include glass($glass-light-2, 10px);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: $color-ivory;
+    background: rgba(20, 39, 29, 0.88);
+    border: 1px solid rgba(232, 205, 146, 0.28);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
   }
 
   &__body {
@@ -222,15 +207,6 @@
   &:hover &__more {
     gap: 0.7rem;
   }
-}
-
-.room-card[data-room="polulyux"] .room-card__media::after,
-.room-card[data-room="lyux"] .room-card__media::after {
-  background: linear-gradient(180deg, rgba(120, 86, 40, 0.4), rgba(80, 56, 26, 0.64));
-}
-
-.room-card[data-room="semeini"] .room-card__media::after {
-  background: linear-gradient(180deg, rgba(22, 46, 50, 0.42), rgba(14, 32, 36, 0.62));
 }
 
 .rooms__note {

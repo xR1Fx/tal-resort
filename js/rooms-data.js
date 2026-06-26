@@ -4,9 +4,10 @@
   const R = "assets/images/rooms/";
 
   const POLU = [
-    R + "lyux/AO5A0898.jpg",
-    R + "lyux/AO5A0929.jpg",
     R + "lyux/AO5A0944.jpg",
+    R + "lyux/AO5A0946.jpg",
+    R + "lyux/AO5A0954.jpg",
+    R + "lyux/AO5A0931.jpg",
     R + "lyux/AO5A0961.jpg",
   ];
 
@@ -14,10 +15,10 @@
     {
       slug: "odnomestny",
       images: [
-        R + "odnomestny/odnomestny-1.png",
-        R + "odnomestny/odnomestny-2.png",
         R + "odnomestny/odnomestny-3.png",
         R + "odnomestny/odnomestny-4.png",
+        R + "odnomestny/odnomestny-1.png",
+        R + "odnomestny/odnomestny-2.png",
       ],
     },
     {
@@ -38,14 +39,9 @@
       slug: "lyux",
       images: [
         R + "lyux/AO5A0851.jpg",
-        R + "lyux/AO5A0891.jpg",
         R + "lyux/AO5A0898.jpg",
         R + "lyux/AO5A0929.jpg",
-        R + "lyux/AO5A0931.jpg",
-        R + "lyux/AO5A0944.jpg",
-        R + "lyux/AO5A0946.jpg",
-        R + "lyux/AO5A0954.jpg",
-        R + "lyux/AO5A0961.jpg",
+        R + "lyux/AO5A0891.jpg",
         R + "lyux/AO5A0970.jpg",
         R + "lyux/AO5A0975.jpg",
       ],
@@ -79,10 +75,10 @@
     {
       slug: "celebrity",
       images: [
-        R + "celebrity_house/DSC09099-2.jpg",
-        R + "celebrity_house/DSC09101.jpg",
         R + "celebrity_house/DSC09155.jpg",
         R + "celebrity_house/IMG_0569-2.jpg",
+        R + "celebrity_house/DSC09099-2.jpg",
+        R + "celebrity_house/DSC09101.jpg",
         R + "celebrity_house/celebrity-extra.png",
       ],
     },

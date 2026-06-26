@@ -1,20 +1,20 @@
 .footer {
   background-color: $color-dark;
   color: rgba(255, 255, 255, 0.85);
-  padding-top: clamp(4rem, 9vh, 7rem);
+  padding-top: clamp(2.4rem, 5vh, 4rem);
 
   &__inner {
     display: grid;
     grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-    gap: clamp(2rem, 4vw, 3.5rem);
-    padding-bottom: clamp(3rem, 7vh, 5rem);
+    gap: clamp(1.8rem, 3.5vw, 3rem);
+    padding-bottom: clamp(2rem, 4.5vh, 3.2rem);
 
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
     }
     @include mobile {
       grid-template-columns: 1fr;
-      gap: 2.4rem;
+      gap: 1.6rem;
     }
   }
 
@@ -22,11 +22,11 @@
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.9rem;
   }
 
   &__logo {
-    height: 52px;
+    height: 46px;
     width: auto;
     filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
   }
@@ -63,7 +63,7 @@
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: $color-accent;
-    margin-bottom: 1.1rem;
+    margin-bottom: 0.8rem;
   }
 
   &__list {
@@ -104,7 +104,7 @@
   &__note {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.95rem;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1rem;
   }
 
   &__btn {
@@ -128,12 +128,12 @@
 
   &__bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 1.6rem 0;
+    padding: 1.1rem 0;
 
-    padding-bottom: calc(1.6rem + env(safe-area-inset-bottom));
+    padding-bottom: calc(1.1rem + env(safe-area-inset-bottom));
 
     @include mobile {
-      padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+      padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
     }
   }
 
