@@ -49,10 +49,10 @@
 
     @include tablet {
       grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       max-height: 92vh;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      overscroll-behavior: contain;
+      overflow: hidden;
     }
   }
 
@@ -67,6 +67,10 @@
     @include tablet {
       aspect-ratio: 4 / 3;
       min-height: 0;
+      flex: 0 0 auto;
+    }
+    @include mobile {
+      aspect-ratio: 16 / 10;
     }
   }
 
@@ -151,8 +155,11 @@
     max-height: 92vh;
 
     @include tablet {
+      flex: 1 1 auto;
       max-height: none;
-      overflow: visible;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
     }
   }
 

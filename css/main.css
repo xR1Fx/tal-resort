@@ -1217,10 +1217,10 @@ a {
 @media (max-width: 900px) {
   .room-modal__dialog {
     grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     max-height: 92vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
+    overflow: hidden;
   }
 }
 .room-modal__gallery {
@@ -1234,6 +1234,12 @@ a {
   .room-modal__gallery {
     aspect-ratio: 4/3;
     min-height: 0;
+    flex: 0 0 auto;
+  }
+}
+@media (max-width: 600px) {
+  .room-modal__gallery {
+    aspect-ratio: 16/10;
   }
 }
 .room-modal__track {
@@ -1310,8 +1316,11 @@ a {
 }
 @media (max-width: 900px) {
   .room-modal__content {
+    flex: 1 1 auto;
     max-height: none;
-    overflow: visible;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 }
 .room-modal__meta {
