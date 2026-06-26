@@ -20,9 +20,10 @@ next-env.d.ts
 # Claude Code — личные настройки (не коммитим)
 .claude/settings.local.json
 
-# Видео курорта храним в репозитории целиком (чтобы продолжить на любом ПК)
+# Видео-исходники не храним в репозитории
 assets/*.mp4
+assets/*.MOV
+assets/*.mov
 !assets/hero.mp4
 !assets/hero-bg.mp4
-!assets/TalRes.mp4
 !assets/atmosphere.mp4
