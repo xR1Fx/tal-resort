@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
     rel="stylesheet"
   />
 
@@ -98,9 +98,9 @@
         ],
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
+          "ratingValue": "4.6",
           "bestRating": "5",
-          "ratingCount": "1200"
+          "ratingCount": "1860"
         },
         "sameAs": [
           "https://instagram.com/tal_resort",
@@ -584,7 +584,7 @@
         <article class="room-card" data-reveal data-room="standart">
           <div class="room-card__media">
             <img src="assets/images/rooms/standart/DSCF0951.jpg" alt="" loading="lazy" />
-            <span class="room-card__badge" data-i18n="rooms.standart.badge">от 90 000 ₸ / сутки</span>
+            <span class="room-card__badge" data-i18n="rooms.standart.badge">от 75 000 ₸ / сутки</span>
             <h3 class="room-card__name" data-i18n="rooms.standart.title">Стандарт</h3>
           </div>
           <div class="room-card__body">
@@ -599,7 +599,7 @@
         <article class="room-card" data-reveal data-room="polulyux">
           <div class="room-card__media">
             <img src="assets/images/rooms/lyux/AO5A0944.jpg" alt="" loading="lazy" />
-            <span class="room-card__badge" data-i18n="rooms.polulyux.badge">от 105 000 ₸ / сутки</span>
+            <span class="room-card__badge" data-i18n="rooms.polulyux.badge">от 95 000 ₸ / сутки</span>
             <h3 class="room-card__name" data-i18n="rooms.polulyux.title">Полулюкс</h3>
           </div>
           <div class="room-card__body">
@@ -614,7 +614,7 @@
         <article class="room-card" data-reveal data-room="lyux">
           <div class="room-card__media">
             <img src="assets/images/rooms/lyux/AO5A0851.jpg" alt="" loading="lazy" />
-            <span class="room-card__badge" data-i18n="rooms.lyux.badge">от 120 000 ₸ / сутки</span>
+            <span class="room-card__badge" data-i18n="rooms.lyux.badge">от 105 000 ₸ / сутки</span>
             <h3 class="room-card__name" data-i18n="rooms.lyux.title">Люкс</h3>
           </div>
           <div class="room-card__body">
@@ -629,7 +629,7 @@
         <article class="room-card" data-reveal data-room="semeini">
           <div class="room-card__media">
             <img src="assets/images/rooms/semeini/AO5A0784.jpg" alt="" loading="lazy" />
-            <span class="room-card__badge" data-i18n="rooms.semeini.badge">от 120 000 ₸ / сутки</span>
+            <span class="room-card__badge" data-i18n="rooms.semeini.badge">от 105 000 ₸ / сутки</span>
             <h3 class="room-card__name" data-i18n="rooms.semeini.title">Семейный</h3>
           </div>
           <div class="room-card__body">
@@ -649,7 +649,7 @@
         <article class="room-card" data-reveal data-room="guest_house">
           <div class="room-card__media">
             <img src="assets/images/rooms/guest_house/DSC09005.jpg" alt="" loading="lazy" />
-            <span class="room-card__badge" data-i18n="rooms.guest_house.badge">от 90 000 ₸ / сутки</span>
+            <span class="room-card__badge" data-i18n="rooms.guest_house.badge">от 80 000 ₸ / сутки</span>
             <h3 class="room-card__name" data-i18n="rooms.guest_house.title">Guest House</h3>
           </div>
           <div class="room-card__body">
@@ -664,7 +664,7 @@
         <article class="room-card" data-reveal data-room="celebrity">
           <div class="room-card__media">
             <img src="assets/images/rooms/celebrity_house/DSC09155.jpg" alt="" loading="lazy" />
-            <span class="room-card__badge" data-i18n="rooms.celebrity.badge">от 200 000 ₸ / сутки</span>
+            <span class="room-card__badge" data-i18n="rooms.celebrity.badge">от 190 000 ₸ / сутки</span>
             <h3 class="room-card__name" data-i18n="rooms.celebrity.title">Дом «Celebrity»</h3>
           </div>
           <div class="room-card__body">
@@ -740,15 +740,15 @@
 
       <div class="gallery__video" data-reveal>
         <video
-          autoplay
           muted
           loop
           playsinline
           webkit-playsinline
-          preload="metadata"
+          preload="none"
           poster="assets/images/atmosphere-poster.jpg"
+          data-lazy-video
         >
-          <source src="assets/atmosphere.mp4" type="video/mp4" />
+          <source data-src="assets/atmosphere.mp4" type="video/mp4" />
         </video>
         <div class="gallery__video-overlay"></div>
         <span class="gallery__video-cap" data-i18n="gallery.cap">Атмосфера Tal Resort</span>
@@ -763,43 +763,12 @@
         <h2 class="section-title" data-reveal data-i18n="rev.title">Нам доверяют отдых</h2>
       </header>
 
-      <div class="testimonials__grid">
-        <article class="testimonial" data-reveal>
-          <span class="testimonial__stars" aria-hidden="true">★★★★★</span>
-          <p class="testimonial__quote" data-i18n="rev.q1">
-            Термальные бассейны — это что-то невероятное. Дети не вылезали из
-            воды, а мы наконец-то выдохнули. Вернёмся ещё не раз.
-          </p>
-          <div class="testimonial__author">
-            <span class="testimonial__name" data-i18n="rev.n1">Айгерим</span>
-            <span class="testimonial__meta" data-i18n="rev.m1">Семейный отдых · Алматы</span>
-          </div>
-        </article>
-
-        <article class="testimonial" data-reveal>
-          <span class="testimonial__stars" aria-hidden="true">★★★★★</span>
-          <p class="testimonial__quote" data-i18n="rev.q2">
-            Кедровая баня и SPA после рабочей недели — идеальная перезагрузка.
-            Час от города, а ощущение, будто уехал далеко в горы.
-          </p>
-          <div class="testimonial__author">
-            <span class="testimonial__name" data-i18n="rev.n2">Данияр</span>
-            <span class="testimonial__meta" data-i18n="rev.m2">Выходные вдвоём</span>
-          </div>
-        </article>
-
-        <article class="testimonial" data-reveal>
-          <span class="testimonial__stars" aria-hidden="true">★★★★★</span>
-          <p class="testimonial__quote" data-i18n="rev.q3">
-            Снимали гостевой дом на день рождения. Сервис, кухня, атмосфера —
-            всё на высоте. Гости до сих пор вспоминают.
-          </p>
-          <div class="testimonial__author">
-            <span class="testimonial__name" data-i18n="rev.n3">Мадина</span>
-            <span class="testimonial__meta" data-i18n="rev.m3">Праздник компанией</span>
-          </div>
-        </article>
+      <div class="reviews__wall" data-reviews-wall aria-label="Отзывы гостей с 2GIS">
+        <!-- карточки добавляются из js/reviews-data.js (Рико) -->
       </div>
+
+      <a class="reviews__source" href="https://2gis.kz/almaty/firm/70000001090473462/tab/reviews"
+         target="_blank" rel="noopener" data-reveal data-i18n="rev.all">Все отзывы на 2GIS →</a>
     </div>
   </section>
 
@@ -947,7 +916,8 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/rooms-data.js"></script>
-  
+  <script src="js/reviews-data.js"></script>
+
   <script src="js/script.js"></script>
 
 </body>

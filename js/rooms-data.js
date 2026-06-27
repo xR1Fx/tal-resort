@@ -69,7 +69,7 @@
         R + "guest_house/DSC09013.jpg",
         R + "guest_house/DSC09016.jpg",
         R + "guest_house/DSC09027.jpg",
-        R + "guest_house/guest_house-extra.png",
+        R + "guest_house/guest_house-extra.webp",
       ],
     },
     {
@@ -79,7 +79,7 @@
         R + "celebrity_house/IMG_0569-2.jpg",
         R + "celebrity_house/DSC09099-2.jpg",
         R + "celebrity_house/DSC09101.jpg",
-        R + "celebrity_house/celebrity-extra.png",
+        R + "celebrity_house/celebrity-extra.webp",
       ],
     },
   ];

@@ -485,4 +485,149 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
   });
 })();
 
+// ===============================
+//  Стена отзывов (2GIS) — авто-скролл колонок с fade-краями
+// ===============================
+(function reviewsWall() {
+  const wall = document.querySelector("[data-reviews-wall]");
+  if (!wall || !Array.isArray(window.TAL_REVIEWS) || !window.TAL_REVIEWS.length) return;
+  const reviews = window.TAL_REVIEWS;
+
+  // безопасное экранирование текста отзыва
+  function esc(s) {
+    const d = document.createElement("div");
+    d.textContent = s == null ? "" : String(s);
+    return d.innerHTML;
+  }
+
+  function cardHTML(r) {
+    const stars = "★".repeat(r.stars || 5);
+    const meta = r.meta ? `<span class="review-card__meta">${esc(r.meta)}</span>` : "";
+    const alt = r.textKk
+      ? `<p class="review-card__alt" lang="kk">${esc(r.textKk)}</p>`
+      : "";
+    return (
+      `<article class="review-card">` +
+      `<span class="review-card__stars" aria-hidden="true">${stars}</span>` +
+      `<p class="review-card__text">${esc(r.text)}</p>` +
+      alt +
+      `<div class="review-card__author">` +
+      `<span class="review-card__name">${esc(r.name)}</span>` +
+      meta +
+      `<span class="review-card__src">2ГИС</span>` +
+      `</div></article>`
+    );
+  }
+
+  let tweens = [];
+  let builtCols = -1;
+
+  function build() {
+    const cols = window.matchMedia("(max-width: 600px)").matches ? 1 : 2;
+    if (cols === builtCols) return; // пересобираем только при смене брейкпоинта
+    builtCols = cols;
+
+    tweens.forEach((t) => t.kill());
+    tweens = [];
+    wall.innerHTML = "";
+    wall.classList.remove("is-static");
+    wall.style.gridTemplateColumns = cols === 1 ? "1fr" : "repeat(2, 1fr)";
+
+    const buckets = Array.from({ length: cols }, () => []);
+    reviews.forEach((r, i) => buckets[i % cols].push(r));
+
+    buckets.forEach((bucket, ci) => {
+      const col = document.createElement("div");
+      col.className = "reviews__col";
+      const set = bucket.map(cardHTML).join("");
+      col.innerHTML = set + set; // дубль набора для бесшовной петли
+      wall.appendChild(col);
+
+      if (reduceMotion) {
+        wall.classList.add("is-static");
+        return;
+      }
+      // чётные колонки плывут вверх, нечётные — вниз; набор продублирован,
+      // поэтому -50% = ровно один полный набор (стык незаметен)
+      const up = ci % 2 === 0;
+      const dur = Math.max(18, bucket.length * 6);
+      gsap.set(col, { yPercent: up ? 0 : -50 });
+      tweens.push(
+        gsap.to(col, {
+          yPercent: up ? -50 : 0,
+          duration: dur,
+          ease: "none",
+          repeat: -1,
+        })
+      );
+    });
+  }
+
+  // ПК (мышь): при наведении не стоп, а плавное замедление; увёл мышь — обратно к норме.
+  // Мобайл (касание): оставляем как было — короткая пауза, пока палец на блоке.
+  if (!reduceMotion) {
+    const setSpeed = (v) =>
+      tweens.forEach((t) =>
+        gsap.to(t, { timeScale: v, duration: 0.45, ease: "power2.out", overwrite: true })
+      );
+    wall.addEventListener("pointerenter", (e) => {
+      if (e.pointerType === "mouse") setSpeed(0.3); // ~втрое медленнее, но не стоп
+    });
+    wall.addEventListener("pointerleave", (e) => {
+      if (e.pointerType === "mouse") setSpeed(1);
+    });
+    wall.addEventListener("touchstart", () => tweens.forEach((t) => t.pause()), {
+      passive: true,
+    });
+    wall.addEventListener("touchend", () => tweens.forEach((t) => t.play()), {
+      passive: true,
+    });
+  }
+
+  build();
+
+  let rt;
+  window.addEventListener("resize", () => {
+    clearTimeout(rt);
+    rt = setTimeout(build, 250);
+  });
+})();
+
+// ===============================
+//  Ленивая загрузка тяжёлых видео — грузим только при подходе к секции
+//  (atmosphere.mp4 ~6 МБ снимается с первоначальной загрузки)
+// ===============================
+(function lazyVideos() {
+  const vids = document.querySelectorAll("video[data-lazy-video]");
+  if (!vids.length) return;
+
+  const load = (v) => {
+    const src = v.querySelector("source[data-src]");
+    if (src && !src.getAttribute("src")) {
+      src.setAttribute("src", src.dataset.src);
+      v.load();
+    }
+    const p = v.play();
+    if (p && typeof p.catch === "function") p.catch(() => {});
+  };
+
+  if (!("IntersectionObserver" in window)) {
+    vids.forEach(load); // старые браузеры — грузим сразу
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          load(e.target);
+          obs.unobserve(e.target);
+        }
+      });
+    },
+    { rootMargin: "300px 0px" } // чуть заранее, чтобы успело прогрузиться
+  );
+  vids.forEach((v) => io.observe(v));
+})();
+
 window.addEventListener("load", () => ScrollTrigger.refresh());
