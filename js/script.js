@@ -485,15 +485,11 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
   });
 })();
 
-// ===============================
-//  Стена отзывов (2GIS) — авто-скролл колонок с fade-краями
-// ===============================
 (function reviewsWall() {
   const wall = document.querySelector("[data-reviews-wall]");
   if (!wall || !Array.isArray(window.TAL_REVIEWS) || !window.TAL_REVIEWS.length) return;
   const reviews = window.TAL_REVIEWS;
 
-  // безопасное экранирование текста отзыва
   function esc(s) {
     const d = document.createElement("div");
     d.textContent = s == null ? "" : String(s);
@@ -524,7 +520,7 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
 
   function build() {
     const cols = window.matchMedia("(max-width: 600px)").matches ? 1 : 2;
-    if (cols === builtCols) return; // пересобираем только при смене брейкпоинта
+    if (cols === builtCols) return;
     builtCols = cols;
 
     tweens.forEach((t) => t.kill());
@@ -540,15 +536,13 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
       const col = document.createElement("div");
       col.className = "reviews__col";
       const set = bucket.map(cardHTML).join("");
-      col.innerHTML = set + set; // дубль набора для бесшовной петли
+      col.innerHTML = set + set;
       wall.appendChild(col);
 
       if (reduceMotion) {
         wall.classList.add("is-static");
         return;
       }
-      // чётные колонки плывут вверх, нечётные — вниз; набор продублирован,
-      // поэтому -50% = ровно один полный набор (стык незаметен)
       const up = ci % 2 === 0;
       const dur = Math.max(18, bucket.length * 6);
       gsap.set(col, { yPercent: up ? 0 : -50 });
@@ -563,15 +557,13 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
     });
   }
 
-  // ПК (мышь): при наведении не стоп, а плавное замедление; увёл мышь — обратно к норме.
-  // Мобайл (касание): оставляем как было — короткая пауза, пока палец на блоке.
   if (!reduceMotion) {
     const setSpeed = (v) =>
       tweens.forEach((t) =>
         gsap.to(t, { timeScale: v, duration: 0.45, ease: "power2.out", overwrite: true })
       );
     wall.addEventListener("pointerenter", (e) => {
-      if (e.pointerType === "mouse") setSpeed(0.3); // ~втрое медленнее, но не стоп
+      if (e.pointerType === "mouse") setSpeed(0.3);
     });
     wall.addEventListener("pointerleave", (e) => {
       if (e.pointerType === "mouse") setSpeed(1);
@@ -593,10 +585,6 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
   });
 })();
 
-// ===============================
-//  Ленивая загрузка тяжёлых видео — грузим только при подходе к секции
-//  (atmosphere.mp4 ~6 МБ снимается с первоначальной загрузки)
-// ===============================
 (function lazyVideos() {
   const vids = document.querySelectorAll("video[data-lazy-video]");
   if (!vids.length) return;
@@ -612,7 +600,7 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
   };
 
   if (!("IntersectionObserver" in window)) {
-    vids.forEach(load); // старые браузеры — грузим сразу
+    vids.forEach(load);
     return;
   }
 
@@ -625,7 +613,7 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
         }
       });
     },
-    { rootMargin: "300px 0px" } // чуть заранее, чтобы успело прогрузиться
+    { rootMargin: "300px 0px" }
   );
   vids.forEach((v) => io.observe(v));
 })();

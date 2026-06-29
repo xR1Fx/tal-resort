@@ -61,8 +61,6 @@ $glass-shadow: 0 18px 50px rgba(8, 30, 38, 0.18);
 html {
   scroll-behavior: auto;
   -webkit-text-size-adjust: 100%;
-  // тёмный фон корня = цвет hero/футера: на iOS «резиновый» оверскролл
-  // сверху и снизу больше не показывает светлую полосу
   background-color: $color-dark;
 }
 
@@ -390,8 +388,6 @@ a {
   &__proof {
     position: absolute;
     left: 50%;
-    // ПК/широкие экраны: плашка внизу по центру (под видео, много воздуха).
-    // На мобильном перекрывается оверрайдом ниже — там она остаётся вверху.
     bottom: clamp(2rem, 5vh, 3.5rem);
     transform: translateX(-50%);
     z-index: 3;
