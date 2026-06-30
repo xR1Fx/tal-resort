@@ -18,22 +18,24 @@
   &__step {
     position: relative;
     display: grid;
-    grid-template-columns: 72px 1fr;
+    grid-template-columns: 120px 1fr;
     gap: clamp(1.1rem, 3vw, 2.2rem);
     padding-bottom: clamp(2.2rem, 5vw, 3.4rem);
 
     @include mobile {
-      grid-template-columns: 56px 1fr;
+      grid-template-columns: 90px 1fr;
       gap: 1rem;
     }
   }
 
   &__time {
     font-family: $font-serif;
-    font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+    font-size: clamp(0.95rem, 2.3vw, 1.25rem);
+    line-height: 1.2;
     color: $color-accent-d;
-    text-align: right;
+    text-align: center;
     padding-top: 0.1rem;
+    white-space: nowrap;
   }
 
   &__body {
@@ -56,10 +58,6 @@
 
   &__step:last-child {
     padding-bottom: 0;
-  }
-
-  &__step:last-child &__body {
-    border-left-color: transparent;
   }
 
   &__step-title {
